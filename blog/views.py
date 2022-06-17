@@ -37,5 +37,5 @@ class DeletePostView(generic.DeleteView):
 
 
 def CategoryView(request, cats):
-    category_posts = Post.objects.filter(category=cats)
+    category_posts = Post.objects.filter(category=cats).order_by('-created_on')
     return render(request, 'categories.html', {'cats': cats.title(), 'category_posts': category_posts})
