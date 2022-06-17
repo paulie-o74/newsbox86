@@ -8,5 +8,10 @@ from .models import Post
 class HomeView(generic.ListView):
     model = Post
     queryset = Post.objects.all().order_by('-created_on')
-    template_name = 'home.html'
+    template_name = 'index.html'
     paginate_by = 8
+
+
+class PostDetailView(generic.DetailView):
+    model = Post
+    template_name = 'post_detail.html'

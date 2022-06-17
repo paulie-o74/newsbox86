@@ -2,11 +2,10 @@
 {% block title %}The Newsbox{% endblock %}
 {% block content %}
 
-{% load humanize %}
 
-<!-- Hero image style="background-image: url('/static/images/mic.webp') -->
+<!-- Hero image -->
 
-<header class="py-5 bg-image-full" style="background-image: url('https://res.cloudinary.com/rashdogg74/image/upload/v1655416219/static/images/mic_rvm8b5.webp')">
+<header class="py-5 bg-image-full" style="background-image: url('/static/images/mic.webp')">
     <div style="height: 20rem"></div>
     <div class="text-center my-5">
         <h1 class="text-white fs-3 fw-bolder">Welcome to The NewsBox</h1>
@@ -33,26 +32,19 @@
                             {% else %}
                             <img class="card-img-top" src="{{ post.featured_image.url }}" alt="featured_image">
                             {% endif %}
-                            <a href="{% url 'post_detail' post.slug %}" class="post-link">
+                            <a href="{% url 'post_detail' post.pk %}" class="post-link">
                                 <h2 class="card-title">{{ post.title }}</h2>
                             </a>
                         </div>
                         <div class="image-flash">
                             <p class="author">Submitted by: {{ post.submitted_by }}
 
-                                <!-- Only users that are logged in can edit/ delete their own post -->
-
-                                {% if user.id == post.submitted_by.id %}
-                                <small><a href="{% url 'update_post' post.slug %}"> Edit</a></small>
-                                <small><a href="{% url 'delete_post' post.slug %}"> Delete</a></small>
-                                {% endif %}
                             </p>
                         </div>
                         <hr>
 
-                        <!-- Need an if statement here so that post.upvotes is only visable if upvotes > 0 -->
-
-                        <p class="card-text text-muted ">{{ post.category }} {{ post.created_on  | naturaltime }}</p>
+                        <!-- <p class="card-text text-muted ">{{ post.category }} {{ post.created_on }}</p> -->
+                        <!-- <p class="card-text text-muted ">{{ post.category }} {{ post.created_on }}</p> -->
                     </div>
                 </div>
 

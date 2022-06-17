@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+{% block title %}Post detail {% endblock %}
+{% block content %}
+
+
+
+
+<!-- Post detail-->
+
+<section class="py-5">
+    <div class="container my-5">
+        <div class="row justify-content-center">
+
+            <div class="col-lg-8">
+
+                <div class="image-container">
+                    {% if "placeholder" in post.featured_image.url %}
+                    <img class="card-img-top"
+                        src="https://images.unsplash.com/photo-1495020689067-958852a7765e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2069&q=80"
+                        alt="placeholder_image">
+
+                    {% else %}
+
+                    <img class="card-img-top" src="{{ post.featured_image.url }}" alt="featured_image">
+
+                    {% endif %}
+                </div>
+
+                <!-- Need an if statement here so that post.upvotes is only visable if upvotes > 0 -->
+
+                <p class="text-secondary">Submitted by: {{ post.submitted_by }}
+                    {% if user.id == post.submitted_by.id %}
+                    <small><a href=""> Edit</a></small>
+                    <small><a href=""> Delete</a></small>
+                    {% endif %}
+                </p>
+
+                <!-- Up and downvotes if possible (not possible in the end sdue to time constraints) -->
+
+                <div class="row">
+                    <div class="col-1">
+                        <div class="upvote">
+                            <strong class="upvote-count {{ post.id }}">123</strong><br>
+                            <span class="text-success">
+                                <i class="fa fa-arrow-up fa-2x upvote-click" data-post="{{ post.id }}"></i>
+                            </span>
+                        </div>
+                        <div class="downvote mt-3">
+                            <span class="text-danger">
+                                <i class="fa fa-arrow-down fa-2x upvote-click" data-post="{{ post.id }}"></i>
+                            </span>
+                            <br>
+                            <strong class="downvote-count {{ post.id }}">123</strong>
+                        </div>
+                    </div>
+                    <div class="col-11">
+                        <h1 class="post-title">{{ post.title }}</h1>
+                        <p class="post-category">{{ post.category }} | posted {{ post.created_on }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card-body">
+                    <p class="card-text ">
+                        {{ post.content | safe }}
+                    </p>
+                    <div class="row">
+                        <div class="col-1">
+                            
+                            <strong class="text-secondary"><i class="far fa-comments"></i>
+                                <!-- Our total_comments variable goes before the closing strong tag -->
+                                </strong>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comments section -->
+
+        <div class="row justify-content-center">
+            <div class="col-lg-8 mt-4">
+                <h3>Comments:</h3>
+                <div class="card-body">
+
+                    <div class="comments">
+                        <p class="font-weight-bold">
+
+                        </p>
+
+                    </div>
+                    <hr>
+                    
+                </div>
+            </div>
+            <div class="col-lg-4 card border-0 mb-4 mt-3 ">
+                <div class="card-body">
+
+                    <!-- Only allowed to comment if user is authenticated -->
+
+                    {% if user.is_authenticated %}
+
+                    <h3>Leave a comment:</h3>
+                    <p>Posting as: {{ user.username }}</p>
+                    <form method="post" style="margin-top: 1.3em;">
+
+                        <br>
+                        <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                    </form>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</section>
+
+
+{% endblock %}
