@@ -1,1 +1,1 @@
-web: gunicorn newsbox.wsgi
+web: gunicorn newsbox86.wsgi
