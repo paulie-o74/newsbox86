@@ -17,7 +17,7 @@ class PostForm(forms.ModelForm):
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control'}),
             'content': forms.Textarea(attrs={'class': 'form-control'}),
-            'submitted_by': forms.Select(attrs={'class': 'form-control', 'value': '', 'id': 'elder', 'type': 'hidden'}),
+            'submitted_by': forms.TextInput(attrs={'class': 'form-control', 'value': '', 'id': 'elder', 'type': 'hidden'}),
             'category': forms.Select(choices=CHOICE_LIST, attrs={'class': 'form-control'})
             # 'featured_image': forms.ImageField(attrs={'class': 'form-control'})
             }
