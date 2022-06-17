@@ -1,108 +1,313 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# The Newsbox, a blog designed to share stories
+(Developer: Paul Thomas O'Riordan)
 
-Welcome rashdogg74,
+[View live site](https://.herokuapp.com/)
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+![Screenshot of ](/static/images/amires.png)
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+## Table of Contents
 
-## Gitpod Reminders
+1. [Project Goals](#project-goals)
+    1. [User Goals](#user-goals)
+    2. [Site Owner Goals](#site-owner-goals)
+2. [User Experience](#user-experience)
+    1. [Target Audience](#target-audience)
+    2. [User Stories](#user-stories)
+    3. [Scope](#scope)
+    4. [Design](#design)
+    5. [Wireframes](#wireframes)
+3. [Technical Design](#technical-design)
+    1. [Flowchart](#flowchart)
+    2. [Data Models](#data-models)   
+4. [Technologies Used](#technologies-used)
+    1. [Languages](#languages)
+    2. [Frameworks and Tools](#frameworks-and-tools)
+5. [Features](#features)
+6. [Testing](#validation)
+    1. [Python Validation](#Python-validation)
+    2. [Testing user stories](#testing-user-stories)
+8. [Bugs](#Bugs)
+9. [Deployment](#deployment)
+10. [Credits](#credits)
+11. [Acknowledgments](#acknowledgments)
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+## Project Goals 
 
-`python3 -m http.server`
+- To create a web application which will allow users to share blog posts and news articles similar to reddit and other users will be able to up and down vote posts according to how important/newsworthy they think they are. Users will also be able to comment on posts and engage in a discussion. 
 
-A blue button should appear to click: _Make Public_,
+### User Goals
+- To be able sign up and create an online profile to share blog posts/news articles.
+- To be able to upvote and down vote posts according to importance.
+- To be able to comment on a post and engage in a discussion.
 
-Another blue button should appear to click: _Open Browser_.
+### Site Owner Goals
+- Create a django application that functions in a similar manner to that which can be found on reddit
+- Create a django application which users will be able to follow intuitively.
+- Create a django application which is fit for purpose and does not have any bugs.
+- Create a django application which will have full CRUD functionality. 
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+## User Experience
+### Target Audience
+- People who follow the news.
+- People who are interested in blogs.
+- People who are interested in online forums.
 
-A blue button should appear to click: _Make Public_,
+### User Stories
 
-Another blue button should appear to click: _Open Browser_.
+#### First-time User 
+1. As a first time user, I want to know what is expected of me on the home page.
+2. As a first time user, I want to be able to sign up to the web site easily and create a profile. 
+3. As a first time user, I want to be able to read posts but not be able to comment or post. 
+4. As a first time user, I want to be able to add posts after I have signed up.
+5. As a first time user, I want to be able to log out of the web site easily.
+6. As the user, I want to be able to edit/update/delete a post.
+7. As the user, I want to be able to engage in a discussion on a post. 
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+#### Site Owner
+8. As the site-owner, I want to be able to review all posts, categories, users, upvotes, downvotes, etc.
+9. As the site-owner, I want to be able to edit/update/delete a post. 
+10. As the site-owner, I want to be able to direct users to my social profiles. 
+11. As the site-owner, I want all areas of the site to function correctly and have no bugs. 
 
-To log into the Heroku toolbelt CLI:
+### Scope
+In this first version a sign on using social profiles won't be implemented as well as password recovery. The user model would also be altered. In this first version, the upvote/down vote functionality also unfortunately was not implemented due to time constraints.
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+## Technical Design
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+### ERD of the database 
 
-------
+Below you can see the ERD, created with ![lucidchart](/static/images/ERD.jpeg)
 
-## Release History
+### UI/UX
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+Design inspiration came from (https://zyro.com/es/preview/bronx?utm_medium=affiliate&utm_source=aff1635&utm_campaign=aff35&transaction_id=1021ce1d83add930c49518a342eb22) as well as the hello django walkthrough project on Code Institute.
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+### Data models
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+For this project I have used the following features:
+- list comprehension making a list from an iteration, a more succinct way to create a list from a for loop. 
+- If/else/elif statements
+- Dictionaries e.g. in the username/password checking. 
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+## Technologies Used
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+### Languages
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+- [Python 3](https://www.python.org/)
+- [Http](https://developer.mozilla.org/en-US/docs/Web/HTTP)
+- [CSS](https://www.w3.org/Style/CSS/Overview.en.html)
+- [Javascript](https://www.javascript.com/)
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+### Frameworks and Tools
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+1. [Heroku](https://heroku.com/) - Heroku was used to deploy the project and to provide a virtual terminal to for examiners. 
+2. [GitHub](https://github.com/) - GitHub was used as a remote repository to store project code. 
+3. [Gitpod](https://gitpod.com/) - Gitpod was used as the main IDE for this project.
+4. [lucidchart.com](https://www.lucidchart.com/pages/) - was used to draw flowchart and the ERD.
+3. [Trello](https://trello.com/) - Trello was used as an agile took to manage the planning and implementation of all functionality.
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+#### Libraries
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+### 3rd Party Libraries
+1. [Cloudinary](https://cloudinary.com/) - JUSTIFICATION:  For the purposes of the project spec, I wanted to host images uploaded by users to an external CDN. Cloudinary is an end-to-end image- and video-management solution for websites and mobile apps, covering everything from image and video uploads, storage, manipulations, optimizations to delivery.
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+2. [humanize](https://github.com/Humanizr/Humanizer) - JUSTIFICATION: For the purposes of the project spec, I wanted to give the user an easy human readable time format when viewing posts.
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+3. [crispyforms](https://django-crispy-forms.readthedocs.io/en/latest/#) - JUSTIFICATION: For the purposes of the project spec, I wanted touse crispyforms to allow me to render django forms in an element manner and which interacts very well with bootstrap styling.
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+4. [coverage](https://summernote.org/) - JUSTIFICATION: For the purposes of the project spec, I wanted to test using coverage and see how much of the application was tested.
 
-------
+## Features
 
-## FAQ about the uptime script
+### 
 
-**Why have you added this script?**
+![Screenshot of ](/static/images/Home.png)
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+**This screen covers the following user stories:**
 
-**How will this affect me?**
+1. As a first time user, I want to know what is expected of me on the home page.
+2. As a first time user, I want to be able to sign up to the web site easily and create a profile. 
+3. As a first time user, I want to be able to read posts but not be able to comment or post. 
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+### 
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+![Screenshot of ](/static/images/Sign%20up.png)
 
-**So….?**
+**This screen covers the following user stories:**
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+2. As a first time user, I want to be able to sign up to the web site easily and create a profile. 
 
-**Can I opt out?**
+![Screenshot of ](/static/images/Add.png)
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+**This screen covers the following user stories:**
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+4. As a first time user, I want to be able to add posts after I have signed up.
 
-**Anything more?**
+![Screenshot of ](/static/images/delete.png)
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+**This screen covers the following user stories:**
 
----
+6. As the user, I want to be able to edit/update/delete a post.
 
-Happy coding!
+
+![Screenshot of ](/static/images/Update.png)
+
+**This screen covers the following user stories:**
+
+6. As the user, I want to be able to edit/update/delete a post.
+
+
+![Screenshot of ](/static/images/%20%20db.png)
+
+**This screen covers the following user stories:**
+
+8. As the site-owner, I want to be able to review all posts, categories, users, upvotes, downvotes, etc.
+9. As the site-owner, I want to be able to edit/update/delete a post.
+
+
+![Screenshot of ](/static/images/comments.png)
+
+**This screen covers the following user stories:**
+
+7. As the user, I want to be able to engage in a discussion on a post. 
+
+![Screenshot of ](/static/images/footer.png)
+
+**This screen covers the following user stories:**
+
+10. As the site-owner, I want to be able to direct users to my social profiles.  
+
+**All of the above plus testing resolves in the final user story passing:**
+
+11. As the site-owner, I want all areas of the site to function correctly and have no bugs. 
+
+
+## Validation
+
+### Python Validation
+The Python code of each module was validated using [PEP8 Validation Service](http://pep8online.com/).  All modules returned a pass with 0 errors and few warnings due to django integration.
+
+### HTML Validation
+The html code of each file was validated using W3C Markup Validation Service .  Some files returned warnings but only due to djangos templates and variables. 
+
+### CSS Validation
+The W3C Jigsaw CSS Validation Service was used to validate the CSS of the website. It did not return any errors.
+
+
+### Testing user stories
+
+All user stories were extensively tested and the clear and simple interface, feedback messages as well as gaining insight from different people, testing it without any prior knowledge of the site, all helped in the deployment of this project. Coverage and Test Case was also used for 50% of the application but due to time constraints I was not able to complete the other 50% to reach 100% coverage. 
+
+
+1. As a first time user, I want to know what is expected of me on the home page.
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Nav bar  |  Vavigate to the different pages of the site  | Works as expected with no broken links | Works as expected with no broken links |
+
+
+2. As a first time user, I want to be able to sign up to the web site easily and create a profile. 
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Sign up link/page      | Go to sign up page and add details | Works as expected with no broken links or empty forms valid | Works as expected with no broken links |
+
+3. As a first time user, I want to be able to read posts but not be able to comment or post. 
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Home page with all posts | Read all posts but not able to comment/edit/delete | Works as expected with no broken links | Works as expected with no broken links |
+
+4. As a first time user, I want to be able to add posts after I have signed up.
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| After signing up, the link to add posts appears | Link brings you to the add post page with form | Works as expected with no broken links or empty forms valid | Works as expected with no broken links |
+
+5. As a first time user, I want to be able to log out of the web site easily.
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+|   Log out button     |   Click log out        | link works as expected and logs the user out | link works as expected and logs the user out |
+
+6. As the user, I want to be able to edit/update/delete a post.
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Once a user is logged in, any post that they have submitted will have an edit/delete button which then appears next to it| Press edit/delete buttons| Link works as expected and brings user to confirmation page | Link works as expected and brings user to confirmation page|
+
+7. As the user, I want to be able to engage in a discussion on a post. 
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Once a user is logged in, they can comment and engage in a discussion on any post| Comment box appears at the bottom of each post| Link works as expected and page reloads showing comment| Link works as expected and page reloads showing comment|
+
+8. As the site-owner, I want to be able to review all posts, categories, users, upvotes, downvotes, etc.
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Django admin panel | Go to the desired model and review| Django admin panel is displayed correctly and all actions work as expected| Django admin panel is displayed correctly and all actions work as expected|
+
+9. As the site-owner, I want to be able to edit/update/delete a post. 
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Django admin panel| Go to the post model and do what is required| Go to the post model and do what is required | Go to the post model and do what is required|
+
+10. As the site-owner, I want to be able to direct users to my social profiles. 
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Footer| Click on social links| Links work as expected and open in new tab  | Links work as expected and open in new tab  |
+
+11. As the site-owner, I want all areas of the site to function correctly and have no bugs. 
+
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| Entire site | Multiple- see above| No bugs found| No bugs found  |
+
+## Bugs
+
+| **Bug** | **Fix** |
+| ----------- | ----------- |
+| Original plan was to use up and downvote functionality and subsequently order posts by that.| As my level of ajax is not up to a sufficient level I removed this funcitonality for this version of the project. I didn't have time to research another method of implementing this. |
+| Footer was not sticking to the bottom of the page | Use 100% vh |
+| Success messages not displaying  | Add javascript code at the bottom of base html page |
+| Original plan was to include a categories page so that users could navigate to there and then choose e.g. all sports posts or all coding posts. | Due to time constraints this was not possible for this version of the product. |
+| I tried to include summernote in the html via an import but my tutor nor I could debug so that was removed and may be included in a later version | Due to time constraints this was not possible for this version of the product. |
+
+
+## Deployment
+
+### Heroku
+
+This application has been deployed from Github using Heroku. Here's how:
+
+1. Create an account at heroku.com
+2. Create a new app, add app name and your region
+3. Click on create app
+4. Go to "Settings"
+5. Under Config Vars, add your sensitive data (creds.json for example)
+6. For this project, I set buildpacks to and in that order.
+7. Go to "Deploy" and at "Deployment method", click on "Connect to Github"
+8. Enter your repository name and click on it when it shows below
+9. Choose the branch you want to buid your app from
+10. If desired, click on "Enable Automatic Deploys", which keeps the app up to date with your Github repository
+
+### Forking the GitHub Repository
+
+### Code
+In order of appearance:
+- Blog functionality was built with help from (https://www.youtube.com/watch?v=XWbTKJeSgRQ&ab_channel=JamesQQuick) Codemy on youtube
+- Models were built with help from (https://www.youtube.com/c/CodeArtisanLab) Code Artisan Lab on youtube
+- Views were built with help from (https://www.youtube.com/channel/UCxj-ETPjJu_qs-oHws7YtKQ) Media Upload on youtube
+- General django understanding, added to from (https://www.youtube.com/c/CodingWithMitch) Coding with Mitch on youtube
+
+## Acknowledgements
+I would like to take the opportunity to thank:
+- To the lovely people on the Code Institute Slack for encouraging all the way.
+- To the Code Institute tutors for helping me with a couple of critical issues.
+- To my wife Ashley for her support during a difficult personal time completing this project. 
