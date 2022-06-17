@@ -2,7 +2,7 @@
 {% block title %}Categories{% endblock %}
 {% block content %}
 
-<!-- {% if category_posts %} -->
+
 <!-- Categories-->
 <section class="py-5">
     <div class="container my-5">
@@ -61,7 +61,8 @@
 
             <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
 
-            {% endif %}
+    {% endif %}
+    {% endif %}
         </ul>
     </nav>
 
