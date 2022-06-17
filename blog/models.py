@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.urls import reverse
 from django.utils import timezone
 from cloudinary.models import CloudinaryField
 
@@ -21,9 +22,9 @@ class Post(models.Model):
     def __str__(self):
         return f"{self.title}"
 
-    # def get_absolute_url(self):
-    #     # return reverse('post_detail', args=(str(self.slug)))
-    #     return reverse('home')
+    def get_absolute_url(self):
+        return reverse('post_detail', args=(str(self.pk)))
+        # return reverse('home')
 
     # def save(self, *args, **kwargs):
     #     if not self.slug:
