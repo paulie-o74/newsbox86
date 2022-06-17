@@ -42,10 +42,12 @@
                     <!-- <li class="nav-item"><a class="nav-link" href="#!">Categories</a></li> -->
                     {% if user.is_authenticated %}
                     <li class="nav-item"><a class="nav-link" href="{% url 'add_post' %}">Add post</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'account_logout' %}">Sign out</a></li>
                     <!-- Show user status-->
                     <li class="nav-item"><a class="nav-link">User: {{ user.username }}</a></li>
                     {% else %}
-
+                    <li class="nav-item"><a class="nav-link" href="{% url 'account_signup' %}">Sign up</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'account_login' %}">Log in</a></li>
                     {% endif %}
                 </ul>
             </div>
@@ -115,10 +117,10 @@
 </script>
 
 <!-- Javascript for messages -->
-<!-- <script>
+<script>
     setTimeout(function () {
         let messages = document.getElementById("msg");
         let alert = new bootstrap.Alert(messages);
         alert.close();
     }, 2000);
-</script> -->
+</script>
