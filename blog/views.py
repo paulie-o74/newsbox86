@@ -1,11 +1,9 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic, View
-from .models import Post
+from .models import Post, Categories
 from .forms import PostForm
 
-# def home(request):
-#     return render(request, 'home.html', {})
 
 class HomeView(generic.ListView):
     model = Post
@@ -36,4 +34,8 @@ class DeletePostView(generic.DeleteView):
     model = Post
     template_name = 'delete_post.html'
     success_url = reverse_lazy('index')
-    
+
+
+def CategoryView(request, cats):
+    category_posts = Post.objects.filter(category=cats)
+    return render(request, 'categories.html', {'cats': cats.title(), 'category_posts': category_posts})
