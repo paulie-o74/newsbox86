@@ -47,7 +47,7 @@
                             </p>
                         </div>
                         <hr>
-                        <p class="card-text text-muted ">{{ post.category }} {{ post.created_on }}</p>
+                        <p class="card-text text-muted "><a href="{% url 'category' post.category %}">{{ post.category }}</a> {{ post.created_on }}</p>
                     </div>
                 </div>
 
