@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Delete Post {% endblock %}
+{% block content %}
+
+<!-- Only authenticated users can delete a post and only their own post -->
+
+{% if user.is_authenticated %}
+{% if user.id == post.submitted_by.id %}
+<section class="py-5 min-vh-100">
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <h1>Delete Post:</h1>
+                <h3>{{ post.title }}</h3>
+                <br>
+                <form method="POST">
+                    {% csrf_token %}
+                    <strong>Are you sure?!</strong>
+                    <br>
+                    <br>
+                    <button class="btn btn-danger" type="submit">Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- If a non logged in user somehow comes accross this page -->
+{% else %}
+
+<h1>You're not allowed to view this page</h1>
+
+{% endif %}
+
+{% endif %}
+
+{% endblock %}

@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.views import generic, View
 from .models import Post
 from .forms import PostForm
@@ -29,4 +30,10 @@ class UpdatePostView(generic.UpdateView):
     model = Post
     form_class = PostForm
     template_name = 'update_post.html'
+
+
+class DeletePostView(generic.DeleteView):
+    model = Post
+    template_name = 'delete_post.html'
+    success_url = reverse_lazy('index')
     

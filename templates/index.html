@@ -42,13 +42,12 @@
 
                                 {% if user.id == post.submitted_by.id %}
                                 <small><a href="{% url 'update_post' post.pk %}"> Edit</a></small>
+                                <small><a href="{% url 'delete_post' post.pk %}"> Delete</a></small>
                                 {% endif %}
                             </p>
                         </div>
                         <hr>
-
-                        <!-- <p class="card-text text-muted ">{{ post.category }} {{ post.created_on }}</p> -->
-                        <!-- <p class="card-text text-muted ">{{ post.category }} {{ post.created_on }}</p> -->
+                        <p class="card-text text-muted ">{{ post.category }} {{ post.created_on }}</p>
                     </div>
                 </div>
 
