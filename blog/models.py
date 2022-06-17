@@ -10,7 +10,6 @@ class Post(models.Model):
     content = models.TextField()
     category = models.CharField(max_length=200, default='coding')
     featured_image = CloudinaryField('image', default='placeholder')
-    # slug = models.SlugField(max_length=200, unique=True, null=False)
     submitted_by = models.ForeignKey(User, on_delete=models.CASCADE,
                                      related_name="submitted_by")
     created_on = models.DateTimeField(default=timezone.now)
@@ -25,8 +24,3 @@ class Post(models.Model):
     def get_absolute_url(self):
         return reverse('post_detail', args=(str(self.pk)))
         # return reverse('home')
-
-    # def save(self, *args, **kwargs):
-    #     if not self.slug:
-    #         self.slug = slugify(self.title)
-    #     return super().save(*args, **kwargs)
