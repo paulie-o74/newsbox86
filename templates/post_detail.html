@@ -30,8 +30,9 @@
 
                 <p class="text-secondary">Submitted by: {{ post.submitted_by }}
                     {% if user.id == post.submitted_by.id %}
-                    <small><a href=""> Edit</a></small>
+                    <small><a href="{% url 'update_post' post.pk %}"> Edit</a></small>
                     <small><a href=""> Delete</a></small>
+
                     {% endif %}
                 </p>
 

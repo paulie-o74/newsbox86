@@ -38,7 +38,11 @@
                         </div>
                         <div class="image-flash">
                             <p class="author">Submitted by: {{ post.submitted_by }}
+                            <!-- Only users that are logged in can edit/ delete their own post -->
 
+                                {% if user.id == post.submitted_by.id %}
+                                <small><a href="{% url 'update_post' post.pk %}"> Edit</a></small>
+                                {% endif %}
                             </p>
                         </div>
                         <hr>
