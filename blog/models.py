@@ -45,5 +45,3 @@ class Post(models.Model):
     def get_absolute_url(self):
         # return reverse('post_detail', args=(str(self.pk)))
         return reverse('index')
-
-
