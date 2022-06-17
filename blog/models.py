@@ -31,9 +31,13 @@ class Post(models.Model):
                                      related_name="submitted_by")
     created_on = models.DateTimeField(default=timezone.now)
     updated_on = models.DateTimeField(default=timezone.now)
+    up_votes = models.ManyToManyField(User, related_name='up_votes')
 
     class Meta:
         ordering = ['created_on']
+
+    def total_up_votes(self):
+        return self.up_votes.count()
 
     def __str__(self):
         return f"{self.title}"

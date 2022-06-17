@@ -26,8 +26,6 @@
                     {% endif %}
                 </div>
 
-                <!-- Need an if statement here so that post.upvotes is only visable if upvotes > 0 -->
-
                 <p class="text-secondary">Submitted by: {{ post.submitted_by }}
                     {% if user.id == post.submitted_by.id %}
                     <small><a href="{% url 'update_post' post.pk %}"> Edit</a></small>
@@ -35,23 +33,27 @@
                     {% endif %}
                 </p>
 
-                <!-- Up and downvotes if possible (not possible in the end sdue to time constraints) -->
+                <!-- Up and downvotes -->
 
                 <div class="row">
                     <div class="col-1">
-                        <div class="upvote">
-                            <strong class="upvote-count {{ post.id }}">123</strong><br>
-                            <span class="text-success">
-                                <i class="fa fa-arrow-up fa-2x upvote-click" data-post="{{ post.id }}"></i>
-                            </span>
-                        </div>
-                        <div class="downvote mt-3">
-                            <span class="text-danger">
-                                <i class="fa fa-arrow-down fa-2x upvote-click" data-post="{{ post.id }}"></i>
-                            </span>
+                        <form class="upvote" action="{% url 'up_vote' post.pk %}" method="POST">
                             <br>
-                            <strong class="downvote-count {{ post.id }}">123</strong>
-                        </div>
+                            <br>
+                            {% csrf_token %}
+                            {% if up_voted %}
+                                
+                                <button class="btn btn-light" type="submit", name="post_id", value="{{ post.id }}"><i class="fas fa-thumbs-up fa-2x" data-post="{{ post.id }}"></i></button>
+                                
+                            {% else %}
+                                
+                                <button class="btn btn-light" type="submit", name="post_id", value="{{ post.id }}"><i class="fas fa-thumbs-up fa-2x" data-post="{{ post.id }}"></i></button>
+                                
+                            {% endif %}
+
+                            <strong> Likes:{{ total_up_votes }}</strong>
+                        </form>
+
                     </div>
                     <div class="col-11">
                         <h1 class="post-title">{{ post.title }}</h1>
