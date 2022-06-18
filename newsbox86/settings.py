@@ -30,6 +30,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+
 ALLOWED_HOSTS = ['newsbox86.herokuapp.com', 'localhost']
 
 
@@ -45,9 +47,9 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'cloudinary_storage',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
-    'cloudinary_storage',
     'cloudinary',
     'crispy_forms',
     'blog',
