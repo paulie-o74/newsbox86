@@ -1,6 +1,6 @@
 # from allauth.account.forms import SignupForm
 from django import forms
-from .models import Post, Categories
+from .models import Post, Categories, Comment
 
 CHOICES = Categories.objects.all().values_list('cat_title', 'cat_title')
 
@@ -21,3 +21,9 @@ class PostForm(forms.ModelForm):
             'category': forms.Select(choices=CHOICE_LIST, attrs={'class': 'form-control'})
             # 'featured_image': forms.ImageField(attrs={'class': 'form-control'})
             }
+
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ('comment')

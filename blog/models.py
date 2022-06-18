@@ -45,3 +45,17 @@ class Post(models.Model):
     def get_absolute_url(self):
         # return reverse('post_detail', args=(str(self.pk)))
         return reverse('index')
+
+
+class Comment(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, 
+                             related_name="comments")
+    comment_author = models.CharField(max_length=80)
+    comment = models.TextField()
+    created_on = models.DateTimeField(default=timezone.now)
+
+    class Meta:
+        ordering = ['-created_on']
+
+    def __str__(self):
+        return f"Comment {self.comment} by {self.comment_author}"

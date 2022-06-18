@@ -93,15 +93,15 @@
             <div class="col-lg-8 mt-4">
                 <h3>Comments:</h3>
                 <div class="card-body">
-
+                    {% for comment in comments %}
                     <div class="comments">
                         <p class="font-weight-bold">
-
+                            On {{ comment.created_on }} {{ comment.comment_author }} wrote:
                         </p>
-
+                        {{ comment.comment | linebreaks }}
                     </div>
                     <hr>
-                    
+                    {% endfor %}
                 </div>
             </div>
             <div class="col-lg-4 card border-0 mb-4 mt-3 ">
@@ -114,7 +114,8 @@
                     <h3>Leave a comment:</h3>
                     <p>Posting as: {{ user.username }}</p>
                     <form method="post" style="margin-top: 1.3em;">
-
+                        {% csrf_token %}
+                        {{ comment_form | crispy }}
                         <br>
                         <button type="submit" class="btn btn-primary btn-lg">Submit</button>
                     </form>

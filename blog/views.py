@@ -67,3 +67,4 @@ def LikeView(request, pk):
         up_voted = True
 
     return HttpResponseRedirect(reverse('post_detail', args=[str(pk)]))
+
