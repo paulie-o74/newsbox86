@@ -37,6 +37,7 @@
 
                 <div class="row">
                     <div class="col-1">
+                        {% if user.is_authenticated %}
                         <form class="upvote" action="{% url 'up_vote' post.pk %}" method="POST">
                             <br>
                             <br>
@@ -52,6 +53,7 @@
                             {% endif %}
 
                             <strong> Likes:{{ total_up_votes }}</strong>
+                            {% endif %}
                         </form>
 
                     </div>
