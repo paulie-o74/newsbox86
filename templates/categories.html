@@ -2,11 +2,23 @@
 {% block title %}Categories{% endblock %}
 {% block content %}
 
+<!-- Hero image -->
+
+<header class="py-5 bg-image-full" style="background-color: #080c0c;)">
+    <div style="height: 0.5rem"></div>
+    <div class="text-center my-5">
+        <h1 class="text-white fs-3 fw-bolder">Category: {{ cats }} </h1>
+    </div>
+</header>
 
 <!-- Categories-->
 <section class="py-5">
     <div class="container my-5">
         <div class="row justify-content-center">
+            <!-- <div class="col-lg-8">
+                <h1>Category: {{ cats }} </h1>
+                <br><br>
+            </div> -->
 
             <!-- Show all cats -->
 
@@ -61,8 +73,8 @@
 
             <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
 
-    {% endif %}
-    {% endif %}
+            {% endif %}
+            {% endif %}
         </ul>
     </nav>
 

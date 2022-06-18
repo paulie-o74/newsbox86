@@ -45,13 +45,15 @@
                             <br>
                             {% csrf_token %}
                             {% if up_voted %}
-                                
-                                <button class="btn btn-light" type="submit", name="post_id", value="{{ post.id }}"><i class="fas fa-thumbs-up fa-2x" data-post="{{ post.id }}"></i></button>
-                                
+
+                            <button class="btn btn-light" type="submit" , name="post_id" , value="{{ post.id }}"><i
+                                    class="fas fa-thumbs-up fa-2x" data-post="{{ post.id }}"></i></button>
+
                             {% else %}
-                                
-                                <button class="btn btn-light" type="submit", name="post_id", value="{{ post.id }}"><i class="fas fa-thumbs-up fa-2x" data-post="{{ post.id }}"></i></button>
-                                
+
+                            <button class="btn btn-light" type="submit" , name="post_id" , value="{{ post.id }}"><i
+                                    class="fas fa-thumbs-up fa-2x" data-post="{{ post.id }}"></i></button>
+
                             {% endif %}
 
                             <strong> Likes:{{ total_up_votes }}</strong>
@@ -61,7 +63,8 @@
                     </div>
                     <div class="col-11">
                         <h1 class="post-title">{{ post.title }}</h1>
-                        <p class="post-category"><a href="{% url 'category' post.category %}">{{ post.category }}</a> | posted {{ post.created_on | naturaltime }}</p>
+                        <p class="post-category"><a href="{% url 'category' post.category %}">{{ post.category }}</a> |
+                            posted {{ post.created_on | naturaltime }}</p>
                     </div>
                 </div>
             </div>
@@ -82,7 +85,7 @@
                             <strong class="text-secondary"><i class="far fa-comments"></i>
                                 <!-- Our total_comments variable goes before the closing strong tag -->
                                 {{ total_comments }}</strong>
-                                {% endwith %}
+                            {% endwith %}
                         </div>
                     </div>
                 </div>
@@ -96,9 +99,10 @@
                 <h3>Comments:</h3>
                 <!-- Only allowed to comment if user is authenticated -->
                 <p class="text-secondary">
-                {% if user.is_authenticated %}
-                <button class="btn btn-light" style="width: 100%;"><a href="{% url 'add_comment' post.pk %}"> Leave a comment</a></button>
-                {% endif %}
+                    {% if user.is_authenticated %}
+                    <button class="btn btn-light" style="width: 100%;"><a href="{% url 'add_comment' post.pk %}"> Leave
+                            a comment</a></button>
+                    {% endif %}
                 </p>
                 <div class="card-body">
                     {% for comment in comments %}

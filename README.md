@@ -3,7 +3,7 @@
 
 [View live site](https://.herokuapp.com/)
 
-![Screenshot of ](/static/images/amires.png)
+![Screenshot of ](https://res.cloudinary.com/rashdogg74/image/upload/v1655415295/static/images/amires.3c1b4c515a1e.png)
 
 ## Table of Contents
 
@@ -61,13 +61,14 @@
 4. As a first time user, I want to be able to add posts after I have signed up.
 5. As a first time user, I want to be able to log out of the web site easily.
 6. As the user, I want to be able to edit/update/delete a post.
-7. As the user, I want to be able to engage in a discussion on a post. 
+7. As the user, I want to be able to engage in a discussion on a post.
+8. As the user, I want to be able to see all posts from a particular category.
 
 #### Site Owner
-8. As the site-owner, I want to be able to review all posts, categories, users, upvotes, downvotes, etc.
-9. As the site-owner, I want to be able to edit/update/delete a post. 
-10. As the site-owner, I want to be able to direct users to my social profiles. 
-11. As the site-owner, I want all areas of the site to function correctly and have no bugs. 
+9. As the site-owner, I want to be able to review all posts, categories, users, upvotes, downvotes, etc.
+10. As the site-owner, I want to be able to edit/update/delete a post. 
+11. As the site-owner, I want to be able to direct users to my social profiles. 
+12. As the site-owner, I want all areas of the site to function correctly and have no bugs. 
 
 ### Scope
 In this first version a sign on using social profiles won't be implemented as well as password recovery. The user model would also be altered. In this first version, the upvote/down vote functionality also unfortunately was not implemented due to time constraints.
@@ -76,7 +77,7 @@ In this first version a sign on using social profiles won't be implemented as we
 
 ### ERD of the database 
 
-Below you can see the ERD, created with ![lucidchart](/static/images/ERD.jpeg)
+Below you can see the ERD, created with ![lucidchart](https://res.cloudinary.com/rashdogg74/image/upload/v1655558307/static/images/Database_ER_diagram_The_NewsBox_1_tvhfrs.jpg)
 
 ### UI/UX
 
@@ -117,13 +118,11 @@ For this project I have used the following features:
 
 3. [crispyforms](https://django-crispy-forms.readthedocs.io/en/latest/#) - JUSTIFICATION: For the purposes of the project spec, I wanted touse crispyforms to allow me to render django forms in an element manner and which interacts very well with bootstrap styling.
 
-4. [coverage](https://summernote.org/) - JUSTIFICATION: For the purposes of the project spec, I wanted to test using coverage and see how much of the application was tested.
-
 ## Features
 
 ### 
 
-![Screenshot of ](/static/images/Home.png)
+![Screenshot of ](https://res.cloudinary.com/rashdogg74/image/upload/v1655415294/static/images/Home.8f0c1c10abd7.png)
 
 **This screen covers the following user stories:**
 
@@ -134,55 +133,56 @@ For this project I have used the following features:
 
 ### 
 
-![Screenshot of ](/static/images/Sign%20up.png)
+![Screenshot of ](https://res.cloudinary.com/rashdogg74/image/upload/v1655415296/static/images/Sign%20up.49337418e64f.png)
 
 **This screen covers the following user stories:**
 
 2. As a first time user, I want to be able to sign up to the web site easily and create a profile. 
 
-![Screenshot of ](/static/images/Add.png)
+![Screenshot of ](https://res.cloudinary.com/rashdogg74/image/upload/v1655415292/static/images/Add.b48618f16fec.png)
 
 **This screen covers the following user stories:**
 
 4. As a first time user, I want to be able to add posts after I have signed up.
+8. As the user, I want to be able to see all posts from a particular category.
 
-![Screenshot of ](/static/images/delete.png)
-
-**This screen covers the following user stories:**
-
-6. As the user, I want to be able to edit/update/delete a post.
-
-
-![Screenshot of ](/static/images/Update.png)
+![Screenshot of ](https://res.cloudinary.com/rashdogg74/image/upload/v1655559044/static/images/Screenshot_2022-06-18_at_15.30.39_vne23y.png)
 
 **This screen covers the following user stories:**
 
 6. As the user, I want to be able to edit/update/delete a post.
 
 
-![Screenshot of ](/static/images/%20%20db.png)
+![Screenshot of ](https://res.cloudinary.com/rashdogg74/image/upload/v1655415299/static/images/delete.4731114973b7.png)
 
 **This screen covers the following user stories:**
 
-8. As the site-owner, I want to be able to review all posts, categories, users, upvotes, downvotes, etc.
-9. As the site-owner, I want to be able to edit/update/delete a post.
+6. As the user, I want to be able to edit/update/delete a post.
 
 
-![Screenshot of ](/static/images/comments.png)
+![Screenshot of ](https://res.cloudinary.com/rashdogg74/image/upload/v1655415290/static/images/%20%20db.67a8a00c2572.png)
+
+**This screen covers the following user stories:**
+
+9. As the site-owner, I want to be able to review all posts, categories, users, upvotesetc.
+10. As the site-owner, I want to be able to edit/update/delete a post.
+
+
+![Screenshot of ](https://res.cloudinary.com/rashdogg74/image/upload/v1655558820/static/images/Screenshot_2022-06-18_at_15.26.55_zaaqba.png)
 
 **This screen covers the following user stories:**
 
 7. As the user, I want to be able to engage in a discussion on a post. 
 
-![Screenshot of ](/static/images/footer.png)
+![Screenshot of ](https://res.cloudinary.com/rashdogg74/image/upload/v1655415299/static/images/footer.4d55cfa180f5.png)
 
 **This screen covers the following user stories:**
 
-10. As the site-owner, I want to be able to direct users to my social profiles.  
+11. As the site-owner, I want to be able to direct users to my social profiles.  
 
 **All of the above plus testing resolves in the final user story passing:**
 
-11. As the site-owner, I want all areas of the site to function correctly and have no bugs. 
+12. As the site-owner, I want all areas of the site to function correctly and have no bugs. 
 
 
 ## Validation
@@ -199,7 +199,7 @@ The W3C Jigsaw CSS Validation Service was used to validate the CSS of the websit
 
 ### Testing user stories
 
-All user stories were extensively tested and the clear and simple interface, feedback messages as well as gaining insight from different people, testing it without any prior knowledge of the site, all helped in the deployment of this project. Coverage and Test Case was also used for 50% of the application but due to time constraints I was not able to complete the other 50% to reach 100% coverage. 
+All user stories were extensively tested and the clear and simple interface, feedback messages as well as gaining insight from different people, testing it without any prior knowledge of the site, all helped in the deployment of this project. Coverage and Test Case were originally used also used for 50% of the application in it's past repository but due to time constraints I was not able to include it in this version.. 
 
 
 1. As a first time user, I want to know what is expected of me on the home page.
@@ -273,10 +273,10 @@ All user stories were extensively tested and the clear and simple interface, fee
 
 | **Bug** | **Fix** |
 | ----------- | ----------- |
-| Original plan was to use up and downvote functionality and subsequently order posts by that.| As my level of ajax is not up to a sufficient level I removed this funcitonality for this version of the project. I didn't have time to research another method of implementing this. |
+| Original plan was to use up and downvote functionality and subsequently order posts by that.| As my level of ajax is not up to a sufficient level I removed this funcitonality for this version of the project and added just an upvote button. |
 | Footer was not sticking to the bottom of the page | Use 100% vh |
 | Success messages not displaying  | Add javascript code at the bottom of base html page |
-| Original plan was to include a categories page so that users could navigate to there and then choose e.g. all sports posts or all coding posts. | Due to time constraints this was not possible for this version of the product. |
+| Close to final deployment the database was comprimised because I tried to hard revert to an old commit, I and my tutors tried to debug, remove migrations etc but to no avail | Restart project in new repository and add everything again.. |
 | I tried to include summernote in the html via an import but my tutor nor I could debug so that was removed and may be included in a later version | Due to time constraints this was not possible for this version of the product. |
 
 

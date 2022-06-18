@@ -12,7 +12,7 @@
             <div class="col-lg-8">
                 <h1>Update Post:</h1>
                 <br>
-                <form method="POST">
+                <form method="POST" enctype="multipart/form-data" action="">
                     {% csrf_token %}
                     {{ form.as_p }}
 
@@ -34,8 +34,7 @@
 <h1>You're not allowed to view this page</h1>
 
 {% endif %}
-
-
+<!-- Javascript to autopopulate user.id if logged in -->
 <script>
     var name = "{{ user.id }}";
     document.getElementById("elder").value = name;

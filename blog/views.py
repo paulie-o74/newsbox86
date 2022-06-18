@@ -24,6 +24,7 @@ class PostDetailView(generic.DetailView):
         total_up_votes = info.total_up_votes()
         comments = info.comments.all().order_by('created_on')
         up_voted = False
+        print(info.featured_image)
         if info.up_votes.filter(id=self.request.user.id).exists():
             up_voted = False
 

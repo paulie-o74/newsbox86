@@ -11,9 +11,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Font awesome  -->
     <script src="https://kit.fontawesome.com/c13bdc6ae9.js" crossorigin="anonymous"></script>
-    <link rel="apple-touch-icon" sizes="180x180" href="https://res.cloudinary.com/rashdogg74/image/upload/v1655415291/static/images/apple-touch-icon.b29add6356b5.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="https://res.cloudinary.com/rashdogg74/image/upload/v1655415296/static/images/favicon-32x32.4817ab12a8fe.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="https://res.cloudinary.com/rashdogg74/image/upload/v1655415300/static/images/favicon-16x16.67f678b0b756.png">
+    <link rel="apple-touch-icon" sizes="180x180"
+        href="https://res.cloudinary.com/rashdogg74/image/upload/v1655415291/static/images/apple-touch-icon.b29add6356b5.png">
+    <link rel="icon" type="image/png" sizes="32x32"
+        href="https://res.cloudinary.com/rashdogg74/image/upload/v1655415296/static/images/favicon-32x32.4817ab12a8fe.png">
+    <link rel="icon" type="image/png" sizes="16x16"
+        href="https://res.cloudinary.com/rashdogg74/image/upload/v1655415300/static/images/favicon-16x16.67f678b0b756.png">
     <!-- Google fonts  -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,8 +27,12 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <!-- CSS  -->
     <!-- <link rel="stylesheet" href="/static/css/styles.css"> -->
-    <link rel="stylesheet" href="https://res.cloudinary.com/rashdogg74/raw/upload/v1655415300/static/css/styles.7d1da760e388.css">
-    <title>The Newsbox</title>
+    <link rel="stylesheet"
+        href="https://res.cloudinary.com/rashdogg74/raw/upload/v1655415300/static/css/styles.7d1da760e388.css">
+    <title>
+        {% block title %}
+        {% endblock %}
+    </title>
 </head>
 
 <body d-flex flex-column>
@@ -38,7 +45,8 @@
                 aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page"
+                            href="{% url 'index' %}">Home</a></li>
                     <!-- <li class="nav-item"><a class="nav-link" href="#!">Categories</a></li> -->
                     {% if user.is_authenticated %}
                     <li class="nav-item"><a class="nav-link" href="{% url 'add_post' %}">Add post</a></li>

@@ -2,8 +2,6 @@
 {% block title %}Add Post{% endblock %}
 {% block content %}
 
-
-
 <!-- Add post page -->
 
 <section class="py-5 min-vh-100">
@@ -13,11 +11,9 @@
                 <h1>Add Post:</h1>
                 <br>
                 <!-- See forms.py -->
-                <form method="POST" class="">
+                <form method="POST" enctype="multipart/form-data" action="">
                     {% csrf_token %}
-
                     {{ form.as_p }}
-
                     <button class="btn btn-primary" type="submit">Post</button>
                 </form>
             </div>
@@ -26,7 +22,6 @@
 </section>
 
 <!-- Javascript to autopopulate user.id if logged in -->
-
 <script>
     var name = "{{ user.id }}";
     document.getElementById("elder").value = name;
