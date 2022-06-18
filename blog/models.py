@@ -25,7 +25,8 @@ class Categories(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length=200, unique=True)
     content = models.TextField()
-    category = models.CharField(max_length=200, default='Choose from this dropdown list')
+    category = models.CharField(max_length=200,
+                                default='Choose from this dropdown list')
     featured_image = CloudinaryField('image', default='placeholder')
     submitted_by = models.ForeignKey(User, on_delete=models.CASCADE,
                                      related_name="submitted_by")

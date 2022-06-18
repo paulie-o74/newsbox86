@@ -2,6 +2,8 @@
 from django import forms
 from .models import Post, Categories, Comment
 
+# Autopopulate the categories dropdown menu
+
 CHOICES = Categories.objects.all().values_list('cat_title', 'cat_title')
 
 CHOICE_LIST = []
@@ -13,13 +15,16 @@ for item in CHOICES:
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ('title', 'content', 'category', 'featured_image', 'submitted_by')
+        fields = ('title', 'content', 'category', 'featured_image',\
+                  'submitted_by')
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control'}),
             'content': forms.Textarea(attrs={'class': 'form-control'}),
-            'submitted_by': forms.TextInput(attrs={'class': 'form-control', 'value': '', 'id': 'elder', 'type': 'hidden'}),
-            'category': forms.Select(choices=CHOICE_LIST, attrs={'class': 'form-control'})
-            # 'featured_image': forms.ImageField(attrs={'class': 'form-control'})
+            'submitted_by': forms.TextInput(
+                attrs={'class': 'form-control',
+                       'value': '', 'id': 'elder', 'type': 'hidden'}),
+            'category': forms.Select(choices=CHOICE_LIST,
+                                     attrs={'class': 'form-control'})
             }
 
 
@@ -29,5 +34,4 @@ class CommentForm(forms.ModelForm):
         fields = ('comment',)
         widgets = {
             'comment': forms.Textarea(attrs={'class': 'form-control'}),
-            # 'comment_author': forms.TextInput(attrs={'class': 'form-control'}),
             }
