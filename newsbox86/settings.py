@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
     'cloudinary_storage',
     'cloudinary',
     'crispy_forms',

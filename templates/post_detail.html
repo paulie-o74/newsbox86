@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% block title %}Post detail{% endblock %}
 {% block content %}
+{% load crispy_forms_tags %}
+{% load humanize %}
 
 
 
@@ -33,7 +35,7 @@
                     {% endif %}
                 </p>
 
-                <!-- Up and downvotes -->
+                <!-- Up votes-->
 
                 <div class="row">
                     <div class="col-1">
@@ -59,7 +61,7 @@
                     </div>
                     <div class="col-11">
                         <h1 class="post-title">{{ post.title }}</h1>
-                        <p class="post-category"><a href="{% url 'category' post.category %}">{{ post.category }}</a> | posted {{ post.created_on }}</p>
+                        <p class="post-category"><a href="{% url 'category' post.category %}">{{ post.category }}</a> | posted {{ post.created_on | naturaltime }}</p>
                     </div>
                 </div>
             </div>
@@ -76,11 +78,11 @@
                     </p>
                     <div class="row">
                         <div class="col-1">
-                            
+                            {% with comments.count as total_comments %}
                             <strong class="text-secondary"><i class="far fa-comments"></i>
                                 <!-- Our total_comments variable goes before the closing strong tag -->
-                                </strong>
-                            
+                                {{ total_comments }}</strong>
+                                {% endwith %}
                         </div>
                     </div>
                 </div>
@@ -92,6 +94,12 @@
         <div class="row justify-content-center">
             <div class="col-lg-8 mt-4">
                 <h3>Comments:</h3>
+                <!-- Only allowed to comment if user is authenticated -->
+                <p class="text-secondary">
+                {% if user.is_authenticated %}
+                <button class="btn btn-light" style="width: 100%;"><a href="{% url 'add_comment' post.pk %}"> Leave a comment</a></button>
+                {% endif %}
+                </p>
                 <div class="card-body">
                     {% for comment in comments %}
                     <div class="comments">
@@ -102,24 +110,6 @@
                     </div>
                     <hr>
                     {% endfor %}
-                </div>
-            </div>
-            <div class="col-lg-4 card border-0 mb-4 mt-3 ">
-                <div class="card-body">
-
-                    <!-- Only allowed to comment if user is authenticated -->
-
-                    {% if user.is_authenticated %}
-
-                    <h3>Leave a comment:</h3>
-                    <p>Posting as: {{ user.username }}</p>
-                    <form method="post" style="margin-top: 1.3em;">
-                        {% csrf_token %}
-                        {{ comment_form | crispy }}
-                        <br>
-                        <button type="submit" class="btn btn-primary btn-lg">Submit</button>
-                    </form>
-                    {% endif %}
                 </div>
             </div>
         </div>

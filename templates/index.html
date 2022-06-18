@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block title %}The Newsbox{% endblock %}
 {% block content %}
+| naturaltime 
 
 
 <!-- Hero image -->
@@ -47,7 +48,7 @@
                             </p>
                         </div>
                         <hr>
-                        <p class="card-text text-muted "><a href="{% url 'category' post.category %}">{{ post.category }}</a> {{ post.created_on }}</p>
+                        <p class="card-text text-muted "><a href="{% url 'category' post.category %}">{{ post.category }}</a> {{ post.created_on | naturaltime }}</p>
                     </div>
                 </div>
 
