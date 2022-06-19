@@ -81,7 +81,9 @@ Below you can see the ERD, created with ![lucidchart](https://res.cloudinary.com
 
 ### UI/UX
 
-Design inspiration came from (https://zyro.com/es/preview/bronx?utm_medium=affiliate&utm_source=aff1635&utm_campaign=aff35&transaction_id=1021ce1d83add930c49518a342eb22) as well as the hello django walkthrough project on Code Institute.
+Design inspiration came from (https://zyro.com/es/preview/bronx?utm_medium=affiliate&utm_source=aff1635&utm_campaign=aff35&transaction_id=1021ce1d83add930c49518a342eb22) as well as the I think therefor I blog walkthrough project on Code Institute and also reddit (https://www.reddit.com/) and also the journal (https://www.thejournal.ie/). Free hand diagrams/wireframes supplemented these. 
+
+![Screenshot of ](https://res.cloudinary.com/rashdogg74/image/upload/v1655675424/static/images/wire_tkiuce.jpg)
 
 
 ### Data models
@@ -199,7 +201,7 @@ The W3C Jigsaw CSS Validation Service was used to validate the CSS of the websit
 
 ### Testing user stories
 
-All user stories were extensively tested and the clear and simple interface, feedback messages as well as gaining insight from different people, testing it without any prior knowledge of the site, all helped in the deployment of this project. Coverage and Test Case were originally used also used for 50% of the application in it's past repository but due to time constraints I was not able to include it in this version.. 
+All user stories were extensively tested and the clear and simple interface, feedback messages as well as gaining insight from different people, testing it without any prior knowledge of the site, all helped in the deployment of this project. Coverage and Test Case were originally used also used for 50% of the application in it's past repository but due to time constraints I was not able to include it in this version.
 
 
 1. As a first time user, I want to know what is expected of me on the home page.
@@ -276,8 +278,9 @@ All user stories were extensively tested and the clear and simple interface, fee
 | Original plan was to use up and downvote functionality and subsequently order posts by that.| As my level of ajax is not up to a sufficient level I removed this funcitonality for this version of the project and added just an upvote button. |
 | Footer was not sticking to the bottom of the page | Use 100% vh |
 | Success messages not displaying  | Add javascript code at the bottom of base html page |
-| Close to final deployment the database was comprimised because I tried to hard revert to an old commit, I and my tutors tried to debug, remove migrations etc but to no avail | Restart project in new repository and add everything again.. |
+| Close to final deployment the database was comprimised because I tried to hard revert to an old commit, my tutors I and tried to debug, remove migrations etc but to no avail | Restart project in new repository and add everything again.. |
 | I tried to include summernote in the html via an import but my tutor nor I could debug so that was removed and may be included in a later version | Due to time constraints this was not possible for this version of the product. |
+| No redirect after creating a new profile | Added explicit redirect to settings after researching allauth documentation |
 
 
 ## Deployment
