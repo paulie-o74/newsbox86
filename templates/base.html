@@ -8,6 +8,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-control" content="public">
+    <meta name="Newsbox, a site to share news and stories similar to reddit">
     <!-- Font awesome  -->
     <script src="https://kit.fontawesome.com/c13bdc6ae9.js" crossorigin="anonymous"></script>
     <link rel="apple-touch-icon" sizes="180x180"
@@ -26,8 +28,15 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <!-- CSS  -->
     <!-- <link rel="stylesheet" href="/static/css/styles.css"> -->
-    <link rel="stylesheet"
-    href="https://res.cloudinary.com/rashdogg74/raw/upload/v1655415300/static/css/styles.7d1da760e388.css">
+    <link rel="preload"
+        href="https://res.cloudinary.com/rashdogg74/raw/upload/v1655415300/static/css/styles.7d1da760e388.css"
+        as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet"
+            href="https://res.cloudinary.com/rashdogg74/raw/upload/v1655415300/static/css/styles.7d1da760e388.css">
+        </noscript>
+    <!-- <link rel="stylesheet"
+        href="https://res.cloudinary.com/rashdogg74/raw/upload/v1655415300/static/css/styles.7d1da760e388.css"> -->
     <title>
         {% block title %}
         {% endblock %}
