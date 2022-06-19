@@ -12,9 +12,7 @@
 <section class="py-5">
     <div class="container my-5">
         <div class="row justify-content-center">
-
             <div class="col-lg-8">
-
                 <div class="image-container">
                     {% if "placeholder" in post.featured_image.url %}
                     <img class="card-img-top"
@@ -46,12 +44,12 @@
                             {% csrf_token %}
                             {% if up_voted %}
 
-                            <button class="btn btn-light" type="submit" , name="post_id" , value="{{ post.id }}"><i
+                            <button class="btn btn-light" type="submit" name="post_id" value="{{ post.id }}"><i
                                     class="fas fa-thumbs-up fa-2x" data-post="{{ post.id }}"></i></button>
 
                             {% else %}
 
-                            <button class="btn btn-light" type="submit" , name="post_id" , value="{{ post.id }}"><i
+                            <button class="btn btn-light" type="submit" name="post_id" value="{{ post.id }}"><i
                                     class="fas fa-thumbs-up fa-2x" data-post="{{ post.id }}"></i></button>
 
                             {% endif %}
@@ -59,7 +57,6 @@
                             <strong> Likes:{{ total_up_votes }}</strong>
                             {% endif %}
                         </form>
-
                     </div>
                     <div class="col-11">
                         <h1 class="post-title">{{ post.title }}</h1>
@@ -100,8 +97,8 @@
                 <!-- Only allowed to comment if user is authenticated -->
                 <p class="text-secondary">
                     {% if user.is_authenticated %}
-                    <button class="btn btn-light" style="width: 100%;"><a href="{% url 'add_comment' post.pk %}"> Leave
-                            a comment</a></button>
+                    <a href="{% url 'add_comment' post.pk %}"><button class="btn btn-light" style="width: 100%;"> Leave
+                            a comment</button></a>
                     {% endif %}
                 </p>
                 <div class="card-body">

@@ -71,7 +71,7 @@
 12. As the site-owner, I want all areas of the site to function correctly and have no bugs. 
 
 ### Scope
-In this first version a sign on using social profiles won't be implemented as well as password recovery. The user model would also be altered. In this first version, the upvote/down vote functionality also unfortunately was not implemented due to time constraints.
+In this first version a sign on using social profiles won't be implemented as well as password recovery. The user model would also be altered. In this first version, the down vote functionality also unfortunately was not implemented due to time constraints.
 
 ## Technical Design
 

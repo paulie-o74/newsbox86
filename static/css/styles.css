@@ -1,4 +1,4 @@
-* Full page styling */ *,
+/* Full page styling  */
 *::before,
 *::after {
     box-sizing: border-box;
@@ -194,22 +194,6 @@ img {
     padding-right: 2%;
 }
 
-.social-media-icons a:nth-child(1) i {
-    color: #d6249f;
-}
-
-.social-media-icons a:nth-child(2) i {
-    color: #4099FF;
-}
-
-.social-media-icons a:nth-child(3) i {
-    color: #3b5998;
-}
-
-.social-media-icons a:nth-child(4) i {
-    color: #0072b1;
-}
-
 .social-media-icons a i:hover {
     opacity: 0.8;
 }
@@ -256,7 +240,7 @@ img {
     h4,
     .h4,
     h5,
-    .h5,
+    .h5
         {
         font-size: 1.5rem;
     }
