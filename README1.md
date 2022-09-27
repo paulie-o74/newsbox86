@@ -4,10 +4,10 @@
 ![Am I responsive]()
 
 ### **Live Site:**
-[Demit Art Site](https://demit-sb.herokuapp.com/)
+[The Newsbox]()
 
 ### **Repository:**
-[Demit Art Repository](https://github.com/rashdogg74/)
+[The Newsbox Repository](https://github.com/rashdogg74/)
 
 ### **Developer:**
 Paul Thomas O'Riordan
