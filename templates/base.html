@@ -27,7 +27,7 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <!-- CSS  -->
     <link rel="stylesheet"
-        href="https://res.cloudinary.com/rashdogg74/raw/upload/v1655415300/static/css/styles.7d1da760e388.css">
+        href="/static/css/styles.css">
     <title>
         {% block title %}
         {% endblock %}
@@ -63,8 +63,8 @@
     <!-- Messages -->
 
     <div class="container">
-        <div class="row">
-            <div class="col-md-8 offset-md-2">
+        <div class="row alert-fixed">
+            <div class="col-8 mx-auto m-0">
                 {% for message in messages %}
                 <div class="alert {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
                     {{ message | safe }}

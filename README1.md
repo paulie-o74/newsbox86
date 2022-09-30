@@ -39,19 +39,6 @@ This is a full-stack project built using Django, Python, HTML, CSS, and JavaScri
 9. [Deployment](#deployment)
 10. [Credits](#credits)
 11. [Acknowledgments](#acknowledgments)
-<!-- + [Aim](#aim)
-+ [Databases](#database)
-+ [Scope](#scope)
-+ [Wireframes](#wireframes)
-+ [Epics and User Stories](#user-stories)
-+ [Agile Methodologies](#agile)
-+ [Features](#features)
-+ [Marketing](#marketing)
-+ [Bugs](#bugs)
-+ [Technologies Used](#tech)
-+ [Testing](#testing)
-+ [Deployment](#deployment)
-+ [Credits](#credits) -->
 
 ### Aim <a name="aim"></a>
 To create a web application which will allow users to share blog posts and news articles similar to reddit and other users will be able to up and down vote posts according to how important/newsworthy they think they are. Users will also be able to comment on posts and engage in a discussion. 
@@ -117,24 +104,30 @@ Click to see wireframes:
 
 * EPIC: Viewing and navigation of the web app works as expected
 
-1. 
+1.	As a ... first time user... I want to be able to ... know what is expected of me on the home page. So that I can... easily navigate and find the information I am looking for.
+2.	As a ... first time user... I want to be able to ... read posts and comments but not be able to engage. So that I can... decide on whether or not I think it is worth signing up to.
+3.	As a ... first time user... I want to be able to ... know how to sign up to the web site easily and create a profile. So that I can... post stories and engage and comment on other .posts.
 
-* EPIC: 
+* EPIC: Registration & User accounts work as expected
+4.	As a ... Site User	I want to be able to ... easily register a profile. So that I can... save my information for purchases, delivery & commenting site-wide.
+5.	As a ... Site User	I want to be able to ... easily login/log out. So that I can... access my information without filling in forms every time.
+6.	As a ... Site User	I want to be able to ... easily recover my password if I forget it. So that I can... recover access to my account.
+7.	As a ... Site User	I want to be able to ... receive a confirmation email after registering. So that I can... verify that my registration was successful.
+8.	As a ... Site User	I want to be able to ... have a personalised user profile. So that I can... view my details.
 
+* EPIC: Sorting & Searching work as expected
+9.	As a ... Site User	I want to be able to ... sort the list of available posts. So that I can... identify posts based on featured, date added, oldest to newest.
+10.	As a ... Site User	I want to be able to ... see different categories of posts. So that I can... identify specific posts and not waste time looking at other categories' posts.
+11.	As a ... Site User	I want to be able to ... search for a post by name or description. So that I can... find a specific post I'd like I am interested in.
 
+* EPIC: Posting and commenting work as expected
+12.	As a ... Site User	I want to be able to ... create/read/update/delete a post. So that I can... alter how I would like my post to look to allow for maximum engagement.
 
-* EPIC: 
-
-
-* EPIC: 
-
-
-
-* EPIC: 
-
-
-
-
+* EPIC: Site management
+13.	As a ... Site owner	I want to be able to ... review all posts, categories, users, upvotes, downvotes, etc.	So that I can... maintain the site and remove any offensive content.
+14.	As a ... Site owner	I want to be able to ... edit/update/delete a post.	So that I can... maintain the site and remove any offensive content.
+15.	As a ... Site owner	I want to be able to ... direct users to my social profiles. So that I can... increase social interaction and attract new users.
+16.	As a ... Site owner	I want to be able to ... all areas of the site to function correctly and have no bugs. So that I can... ensure an enjoyable browsing experience for all newcomers.
 
 
 ### Agile methodology <a name="agile"></a>
@@ -143,7 +136,7 @@ Click to see wireframes:
 
 <summary>All sprints are described here.</summary>
 
-* Sprint 1 -  (Finished at //2022)
+* Sprint 1 01/06/22 - 05/06/22 (Finished at 05/06/2022)
 
   + Initial setup
     - Install django
@@ -155,19 +148,40 @@ Click to see wireframes:
     - Create responsive navigation
     - Add to README.md file
   
-* Sprint 2 - 2 (Finished on /2022)
+* Sprint 06/06/22 - 12/06/22 (Finished on 12/06/2022)
 
+  + Add Post app
+    - Set up all posts view
+    - Set up post detail view
+    - Set up add post
+    - Set up edit post
+    - Set up delete post
+  + Add Comment app
+    - Set up add comment
+    - Set up edit comment
+    - Set up delete comment
+  + Add Responsive footer
+    - Create footer layout
 
+* Sprint 3 13/06/22 - 15/05/22 (Finished on 15/06/22)
+    + Add Categories app
+    - Set up neccessary views
 
-* Sprint 3 - (Finished on 2022)
+* Sprint 4 15/06/22- 20/06/22 (finished 20/06 2022)
+    + Customise allauth templates
+    - Set up templates
+    - Add CSS
+    + Add Toasts
+    - Set up notifications with toasts
 
-
-  * Sprint 4 -  (finished 2022)
-
-
-
-* Sprint 5 - (Finished on 2022)
-
+* Sprint 5 revising the failed project and making neccesary fixes 26/09/22 - 09/10/22 (Finished on 10/10/22)
+    + Debug and fixes
+    - Remove heroku app and reset databases to run locally
+    - Remove posts and content
+    - Fix views to add login required
+    - 
+    + Testing
+    - Document all testing, revise code and complete README.md and TESTING.md
 
 ### Features <a name="features"></a>
 * Responsive design.

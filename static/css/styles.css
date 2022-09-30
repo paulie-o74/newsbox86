@@ -1,3 +1,9 @@
+/* -------------------------------- Visualizer */
+
+/* * {
+    outline: 1px solid #f00 !important;
+} */
+
 /* Full page styling  */
 *::before,
 *::after {
@@ -145,6 +151,16 @@ img {
     text-align: center;
 }
 
+
+.alert-fixed {
+    position:fixed; 
+    top: 60px; 
+    left: 0px; 
+    width: 100%;
+    z-index:9999; 
+    border-radius:0px;
+}
+
 .text-white {
     --bs-text-opacity: 1;
     color: white;
@@ -159,13 +175,6 @@ img {
     text-decoration: none;
 }
 
-/* .link {
-    text-decoration: none;
-} */
-
-/* .card-title {
-    text-decoration: none;
-} */
 
 /* fw font weight */
 .fw-bolder {
