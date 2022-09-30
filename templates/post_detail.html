@@ -21,15 +21,15 @@
 
                     {% else %}
 
-                    <img class="card-img-top" src="{{ post.featured_image.url }}" alt="featured_image">
+                    <img class="card-img-top" src="{{ post.thumbnail.url }}" alt="featured_image">
 
                     {% endif %}
                 </div>
 
                 <p class="text-secondary">Submitted by: {{ post.submitted_by }}
                     {% if user.id == post.submitted_by.id %}
-                    <small><a href="{% url 'update_post' post.pk %}"> Edit</a></small>
-                    <small><a href="{% url 'delete_post' post.pk %}"> Delete</a></small>
+                    <small><a href=""> Edit</a></small>
+                    <small><a href=""> Delete</a></small>
                     {% endif %}
                 </p>
 
@@ -38,7 +38,7 @@
                 <div class="row">
                     <div class="col-1">
                         {% if user.is_authenticated %}
-                        <form class="upvote" action="{% url 'up_vote' post.pk %}" method="POST">
+                        <form class="upvote" action="" method="POST">
                             <br>
                             <br>
                             {% csrf_token %}

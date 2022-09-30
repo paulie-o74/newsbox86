@@ -1,29 +1,30 @@
+from django.contrib import admin
+from .models import Author, Category, Post, Comment
+
+admin.site.register(Author)
 
 
+@admin.register(Category)
+class CategoriesAdmin(admin.ModelAdmin):
+    list_display = ('title',)
+    search_fields = ['cat_title']
+    prepopulated_fields = {'slug': ('title',)}
 
 
-
-# from django.contrib import admin
-# from .models import Post, Categories, Comment
-
-# # Register models on the admin
-
-# @admin.register(Post)
-# class PostAdmin(admin.ModelAdmin):
-#     list_filter = ('category', 'created_on', 'updated_on', 'submitted_by')
-#     list_display = ('title', 'created_on', 'updated_on')
-#     search_fields = ['title', 'content', 'submitted_by']
+@admin.register(Post)
+class PostAdmin(admin.ModelAdmin):
+    list_filter = ('timestamp', 'author', 'likes')
+    list_display = ('title', 'timestamp')
+    search_fields = ['title', 'content', 'author']
+    prepopulated_fields = {'slug': ('title',)}
 
 
-# @admin.register(Categories)
-# class CategoriesAdmin(admin.ModelAdmin):
-#     list_filter = ('created_on',)
-#     list_display = ('cat_title', 'created_on')
-#     search_fields = ['cat_title']
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    list_filter = ('created_on', 'approved')
+    list_display = ('name', 'created_on', 'post', 'body', 'approved')
+    search_fields = ['post', 'post', 'name', 'body']
+    actions = ['approve_comments']
 
-
-# @admin.register(Comment)
-# class CommentAdmin(admin.ModelAdmin):
-#     list_filter = ('created_on', 'comment_author')
-#     list_display = ('comment_author', 'created_on', 'post')
-#     search_fields = ['comment', 'post', 'comment_author']
+    def approve_comments(self, request, queryset):
+        queryset.update(approved=True)

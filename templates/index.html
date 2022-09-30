@@ -31,27 +31,27 @@
                                 src="https://images.unsplash.com/photo-1495020689067-958852a7765e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2069&q=80"
                                 alt="placeholder_image">
                             {% else %}
-                            <img class="card-img-top" src="{{ post.featured_image.url }}" alt="featured_image">
+                            <img class="card-img-top" src="{{ post.thumbnail.url }}" alt="featured_image">
                             {% endif %}
-                            <a href="{% url 'post_detail' post.pk %}" class="post-link">
+                            <a href="{% url 'post_detail' post.slug %}" class="post-link">
                                 <h2 class="card-title">{{ post.title }}</h2>
                             </a>
                         </div>
                         <div class="image-flash">
-                            <p class="author">Submitted by: {{ post.submitted_by }}
+                            <p class="author">Submitted by: {{ post.author }}
                                 
                                 <!-- Only users that are logged in can edit/ delete their own post -->
 
-                                {% if user.id == post.submitted_by.id %}
-                                <small><a href="{% url 'update_post' post.pk %}"> Edit</a></small>
-                                <small><a href="{% url 'delete_post' post.pk %}"> Delete</a></small>
+                                {% if user.id == post.author.id %}
+                                <small><a href=""> Edit</a></small>
+                                <small><a href=""> Delete</a></small>
                                 {% endif %}
                             </p>
                         </div>
                         <hr>
                         <p class="card-text text-muted "><a
-                                href="{% url 'category' post.category %}">{{ post.category }}</a>
-                            {{ post.created_on | naturaltime }}</p>
+                                href="">{{ post.categories }}</a>
+                            {{ post.timestamp | naturaltime }}</p>
                     </div>
                 </div>
 

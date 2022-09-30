@@ -1,24 +1,27 @@
 {% extends "base.html" %}
-{% block title %}Categories{% endblock %}
+{% block title %}The Newsbox{% endblock %}
 {% block content %}
+{% load humanize %}
+
 
 <!-- Hero image -->
 
-<header class="py-5 bg-image-full" style="background-color: #080c0c;">
-    <div style="height: 0.5rem"></div>
+<!-- <header class="py-5 bg-image-full" style="background-image: url(https://res.cloudinary.com/rashdogg74/image/upload/v1655475571/fpfydgz6bxakva9pf8mp.webp)">
+    <div style="height: 20rem"></div>
     <div class="text-center my-5">
-        <h1 class="text-white fs-3 fw-bolder">Category: {{ cats }} </h1>
+        <h1 class="text-white fs-3 fw-bolder">Welcome to The NewsBox</h1>
+        <p class="text-white-50 mb-0">You decide what's newsworthy</p>
     </div>
-</header>
+</header> -->
 
-<!-- Categories-->
+<!-- Blog news stories-->
 <section class="py-5">
     <div class="container my-5">
         <div class="row justify-content-center">
 
-            <!-- Show all cats -->
+            <!-- Show all posts -->
 
-            {% for post in category_posts %}
+            {% for post in post_list %}
             <div class="col-lg-8">
                 <div class="card mb-4">
                     <div class="card-body">
@@ -28,24 +31,27 @@
                                 src="https://images.unsplash.com/photo-1495020689067-958852a7765e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2069&q=80"
                                 alt="placeholder_image">
                             {% else %}
-                            <img class="card-img-top" src="{{ post.featured_image.url }}" alt="featured_image">
+                            <img class="card-img-top" src="{{ post.thumbnail.url }}" alt="featured_image">
                             {% endif %}
                             <a href="{% url 'post_detail' post.pk %}" class="post-link">
                                 <h2 class="card-title">{{ post.title }}</h2>
                             </a>
                         </div>
                         <div class="image-flash">
-                            <p class="author">Submitted by: {{ post.submitted_by }}
+                            <p class="author">Submitted by: {{ post.author }}
+                                
                                 <!-- Only users that are logged in can edit/ delete their own post -->
 
-                                {% if user.id == post.submitted_by.id %}
-                                <small><a href="{% url 'update_post' post.pk %}"> Edit</a></small>
-                                <small><a href="{% url 'delete_post' post.pk %}"> Delete</a></small>
+                                {% if user.id == post.author.id %}
+                                <small><a href=""> Edit</a></small>
+                                <small><a href=""> Delete</a></small>
                                 {% endif %}
                             </p>
                         </div>
                         <hr>
-                        <p class="card-text text-muted ">{{ post.category }} {{ post.created_on }}</p>
+                        <p class="card-text text-muted "><a
+                                href="">{{ post.categories }}</a>
+                            {{ post.timestamp | naturaltime }}</p>
                     </div>
                 </div>
 
@@ -70,10 +76,9 @@
             <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
 
             {% endif %}
-            {% endif %}
         </ul>
     </nav>
-
+    {% endif %}
 </section>
 
 {% endblock %}
