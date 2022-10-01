@@ -31,7 +31,7 @@
                                 src="https://images.unsplash.com/photo-1495020689067-958852a7765e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2069&q=80"
                                 alt="placeholder_image">
                             {% else %}
-                            <img class="card-img-top" src="{{ post.thumbnail.url }}" alt="featured_image">
+                            <img class="card-img-top" src="{{ post..url }}" alt="featured_image">
                             {% endif %}
                             <a href="{% url 'post_detail' post.slug %}" class="post-link">
                                 <h2 class="card-title">{{ post.title }}</h2>
@@ -42,7 +42,7 @@
                                 
                                 <!-- Only users that are logged in can edit/ delete their own post -->
 
-                                {% if user.id == post.author.id %}
+                                {% if user.id == post. %}
                                 <small><a href=""> Edit</a></small>
                                 <small><a href=""> Delete</a></small>
                                 {% endif %}
@@ -50,7 +50,7 @@
                         </div>
                         <hr>
                         <p class="card-text text-muted "><a
-                                href="">{{ post.categories }}</a>
+                                href="">{{ post. }}</a>
                             {{ post.timestamp | naturaltime }}</p>
                     </div>
                 </div>

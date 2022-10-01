@@ -1,67 +1,6 @@
 from django.contrib.auth import get_user_model
 from django.db import models
 from cloudinary.models import CloudinaryField
-from django.utils import timezone
-
-
-User = get_user_model()
-
-
-class Author(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    profile_picture = CloudinaryField()
-	
-    def __str__(self):
-        return self.user.username
-
-
-class Category(models.Model):
-    title = models.CharField(max_length=20)
-    subtitle = models.CharField(max_length=20)
-    slug = models.SlugField()
-    thumbnail = CloudinaryField('image', default='placeholder')
-
-    def __str__(self):
-        return self.title
-
-
-class Post(models.Model):
-    title = models.CharField(max_length=100)
-    slug = models.SlugField()
-    overview = models.TextField()
-    timestamp = models.DateTimeField(default=timezone.now)
-    content = models.TextField()
-    author = models.ForeignKey(Author, on_delete=models.CASCADE)
-    thumbnail = CloudinaryField('image', default='placeholder')
-    categories = models.ManyToManyField(Category)
-    featured = models.BooleanField()
-    likes = models.ManyToManyField(Author, related_name='likes')
-
-    def __str__(self):
-        return self.title
-
-    def number_of_likes(self):
-        return self.likes.count()
-
-
-class Comment(models.Model):
-    """
-    Comment Model
-    """
-    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
-    name = models.CharField(max_length=80)
-    email = models.EmailField()
-    body = models.TextField()
-    created_on = models.DateTimeField(default=timezone.now)
-    approved = models.BooleanField(default=False)
-
-    class Meta:
-        ordering = ['created_on']
-
-    def __str__(self):
-        return f"Comment {self.body} by {self.name}"
-
-
 
 
 
