@@ -7,13 +7,16 @@ STATUS = ((0, "Draft"), (1, "Published"))
 
 
 class Category(models.Model):
-    cat_title = models.CharField(max_length=80, unique=True)
+    cat_title = models.CharField(max_length=80, blank=False)
     cat_featured_image = CloudinaryField('image', default='placeholder')
     slug = models.SlugField(max_length=200, unique=True)
 
     class Meta:
         verbose_name = "category"
         verbose_name_plural = "categories"
+
+    def __str__(self):
+        return self.cat_title
 
 
 class Post(models.Model):
