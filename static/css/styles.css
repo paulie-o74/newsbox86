@@ -1,8 +1,8 @@
 /* -------------------------------- Visualizer */
 
-* {
+/* * {
     outline: 1px solid #f00 !important;
-}
+} */
 
 /* Full page styling  */
 *::before,
@@ -83,6 +83,10 @@ img {
 
 .bg-custom {
     background-color: #04080b;
+}
+
+.navbar-brand {
+    font-family: comforter;
 }
 
 /* Addition to bootstrap styling */
