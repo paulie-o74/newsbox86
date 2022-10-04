@@ -7,6 +7,9 @@ STATUS = ((0, "Draft"), (1, "Published"))
 
 
 class Category(models.Model):
+    """
+    Category Model linked to each post
+    """
     cat_title = models.CharField(max_length=80, blank=False)
     cat_featured_image = CloudinaryField('image', default='placeholder')
     slug = models.SlugField(max_length=200, unique=True)
@@ -20,6 +23,10 @@ class Category(models.Model):
 
 
 class Post(models.Model):
+    """
+    Post Model
+    Posts displayed in reverse creation date order
+    """
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(
@@ -48,6 +55,10 @@ class Post(models.Model):
 
 
 class Comment(models.Model):
+    """
+    Comment Model
+    Comments displayed in creation date order
+    """
     post = models.ForeignKey(Post, on_delete=models.CASCADE,
                              related_name="comments")
     name = models.CharField(max_length=80)

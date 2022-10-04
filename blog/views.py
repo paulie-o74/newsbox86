@@ -1,9 +1,10 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, redirect, get_object_or_404, reverse
+from django.contrib.auth.decorators import login_required
 from django.views import generic, View
 from django.http import HttpResponseRedirect
+from django.contrib import messages
 from .models import Post
-from .forms import CommentForm
-
+from .forms import CommentForm, PostForm
 
 
 class PostList(generic.ListView):
@@ -42,7 +43,9 @@ class PostDetail(View):
         )
 
     def post(self, request, slug, *args, **kwargs):
-
+        """
+        Post method to add comments and likes
+        """
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.filter(approved=True).order_by("-created_on")
@@ -74,7 +77,9 @@ class PostDetail(View):
 
 
 class PostLike(View):
-    
+    """
+    Post Like Class Based View for managing the like an unlike actions
+    """
     def post(self, request, slug, *args, **kwargs):
         post = get_object_or_404(Post, slug=slug)
         if post.likes.filter(id=request.user.id).exists():
@@ -83,3 +88,29 @@ class PostLike(View):
             post.likes.add(request.user)
 
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+
+
+@login_required
+def add_post(request):
+    """ Add a post to the blog """
+    if request.method == 'POST':
+        form = PostForm(request.POST, request.FILES)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            form.save()
+            messages.success(request, 'Successfully added post for review.')
+            return redirect(reverse('post_detail', args=[post.slug]))
+        else:
+            messages.error(request, 'Failed to add post. \
+                           Please ensure the form is valid.')
+    else:
+        form = PostForm()
+
+    template = 'add_post.html',
+    context = {
+        'form': form,
+    }
+
+    return render(request, 'index.html')
+

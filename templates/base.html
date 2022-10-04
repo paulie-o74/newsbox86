@@ -47,7 +47,7 @@
                     <li class="nav-item"><a class="nav-link" aria-current="page" href="{% url 'home' %}">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Categories</a></li>
                     {% if user.is_authenticated %}
-                    <li class="nav-item"><a class="nav-link" href="#">Add post</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'add_post' %}">Add post</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'account_logout' %}">Sign out</a></li>
                     <!-- Show user status-->
                     <li class="nav-item"><a class="nav-link">User: {{ user.username }}</a></li>
