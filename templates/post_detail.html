@@ -9,85 +9,57 @@
 
 <!-- Post detail-->
 
-<section class="py-5">
+<section class="py-1">
     <div class="container my-5">
         <div class="row justify-content-center">
+
             <div class="col-lg-8">
-                <div class="image-container">
-                    {% if "placeholder" in post.featured_image.url %}
-                    <img class="card-img-top"
-                        src="https://images.unsplash.com/photo-1495020689067-958852a7765e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2069&q=80"
-                        alt="placeholder_image">
-
-                    {% else %}
-
-                    <img class="card-img-top" src="{{ post.featured_image.url }}" alt="featured_image">
-
-                    {% endif %}
-                </div>
-
-                <p class="text-secondary">Submitted by: {{ post.author }}
-                    {% if user.id == post.author.id %}
-                    <small><a href=""> Edit</a></small>
-                    <small><a href=""> Delete</a></small>
-                    {% endif %}
-                </p>
-
-                <!-- Likes -->
-
-                <div class="row">
-                    <div class="col-1">
-                        {% if user.is_authenticated %}
-                        <form class="upvote" action="" method="POST">
-                            <br>
-                            <br>
-
-                            <button class="btn btn-light" type="submit" name="" value="{{ .id }}"><i
-                                    class="fas fa-thumbs-up fa-2x" data-post="{{ .id }}"></i></button>
-
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="image-container">
+                            {% if "placeholder" in post.featured_image.url %}
+                            <img class="card-img-top"
+                                src="https://images.unsplash.com/photo-1495020689067-958852a7765e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2069&q=80"
+                                alt="placeholder_image">
                             {% else %}
-
-                            <button class="btn btn-light" type="submit" name="post_id" value="{{ .id }}"><i
-                                    class="fas fa-thumbs-up fa-2x" data-post="{{ .id }}"></i></button>
-
+                            <img class="card-img-top" src="{{ post.featured_image.url }}" alt="featured_image">
                             {% endif %}
+                            <a href="{% url 'post_detail' post.slug  %}" class="post-link">
+                                <h2 class="card-title">{{ post.title }}</h2>
+                            </a>
+                        </div>
+                        <div class="image-flash">
+                            <p class="author">Submitted by: {{ post.author }} 
+                                <small>{{ post.updated_on | naturaltime }}</small> |
+                                
+                                <!-- Only users that are logged in can edit/ delete their own post -->
 
-                            
-                        </form>
-                    </div>
-                    <div class="col-11">
-                        <h1 class="post-title">{{ post.title }}</h1>
-                        <p class="post-category"><a href="">{{ . }}</a> |
-                            posted {{ post.created_on | naturaltime }}</p>
+                                {% if user.id == post.author.id %}
+                                <small><a href=""> Edit</a></small> |
+                                <small><a href=""> Delete</a></small>
+                                {% endif %}
+                            </p>
+                        </div>
+                        <a href="{% url 'post_detail' post.slug  %}" class="post-link">
+                            <p class="card-text">{{ post.content | safe }}</p>
+                        </a>
+                        <hr>
+                        <p class="card-text text-muted ">
+                            <i class="far fa-thumbs-up"></i> {{ post.number_of_likes }} | {{ post.category }} |
+                            {% with comments.count as total_comments %}
+                            <i class="far fa-comments"></i>
+                                {{ total_comments }}
+                            {% endwith %}
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
 
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <div class="card-body">
-                    <p class="card-text ">
-                        {{ post.content | safe }}
-                    </p>
-                    <div class="row">
-                        <div class="col-1">
-                            {% with comments.count as total_comments %}
-                            <strong class="text-secondary"><i class="far fa-comments"></i>
-                                <!-- Our total_comments variable goes before the closing strong tag -->
-                                {{ total_comments }}</strong>
-                            {% endwith %}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <!-- Comments section -->
-
+        <div class="container my-5">
+            <div class="row justify-content-center">
         <div class="row justify-content-center">
             <div class="col-lg-8 mt-4">
                 <h3>Comments:</h3>
@@ -101,10 +73,10 @@
                 <div class="card-body">
                     {% for comment in comments %}
                     <div class="comments">
-                        <p class="font-weight-bold">
-                            On {{ comment.created_on }} {{ comment.comment_author }} wrote:
+                        <p class="text-muted">
+                            On {{ comment.created_on }} {{ comment.name }} wrote:
                         </p>
-                        {{ comment.comment | linebreaks }}
+                        {{ comment.post | linebreaks }}
                     </div>
                     <hr>
                     {% endfor %}
@@ -112,6 +84,7 @@
             </div>
         </div>
     </div>
+        </div>
 
 
 </section>
