@@ -179,6 +179,12 @@ img {
     text-decoration: none;
 }
 
+.btn-like {
+    color: #4285F4;
+    border: none;
+    background: transparent;
+}
+
 
 /* fw font weight */
 .fw-bolder {
