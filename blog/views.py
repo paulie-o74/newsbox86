@@ -100,7 +100,7 @@ def add_post(request):
             post.author = request.user
             form.save()
             messages.success(request, 'Successfully added post for review.')
-            return redirect(reverse('post_detail', args=[post.slug]))
+            return redirect(reverse('home'))
         else:
             messages.error(request, 'Failed to add post. \
                            Please ensure the form is valid.')
@@ -112,5 +112,5 @@ def add_post(request):
         'form': form,
     }
 
-    return render(request, 'index.html')
+    return render(request, template, context)
 

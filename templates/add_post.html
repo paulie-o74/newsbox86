@@ -5,8 +5,8 @@
 
 <!-- Add post page -->
 
-<section class="py-5 min-vh-100">
-    <div class="container my-5">
+<section class="py-5">
+    <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <h1>Add Post:</h1>
@@ -17,7 +17,7 @@
                             you upload images without it then it might not upload correctly -->
                     {% csrf_token %}
                     {{ form | crispy }}
-                    <button class="btn btn-success"
+                    <button class="btn btn-success my-2"
                         type="submit">Add Post</button>
                 </form>
             </div>
