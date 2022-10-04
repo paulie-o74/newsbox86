@@ -48,9 +48,7 @@
                                 {% endif %}
                             </p>
                         </div>
-                        <a href="{% url 'post_detail' post.slug  %}" class="post-link">
-                            <p class="card-text">{{post.content|slice:":200" }} ... continue reading &rarr;</p>
-                        </a>
+                            <p class="card-text">{{post.content|slice:":200" }} <a href="{% url 'post_detail' post.slug  %}" class="post-link">... continue reading &rarr;</a></p>
                         <hr>
                         <p class="card-text text-muted ">
                             <i class="far fa-thumbs-up"></i> {{ post.number_of_likes }} |
