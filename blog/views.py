@@ -116,3 +116,45 @@ def add_post(request):
 
     return render(request, template, context)
 
+
+@login_required
+def edit_post(request, slug):
+
+    post = get_object_or_404(Post, slug=slug)
+    if request.user.id == post.author.id:
+        if request.method == 'POST':
+            form = PostForm(request.POST, request.FILES, instance=post)
+            if form.is_valid():
+                post = form.save(commit=False)
+                post.author = request.user
+                post.slug = slugify(post.title)
+                post.status = 1
+                form.save()
+                messages.success(request, 'Successfully updated post!')
+                return redirect(reverse('home'))
+            else:
+                messages.error(request, 'Failed to update post. \
+                    Please ensure the form is valid.')
+        else:
+            form = PostForm(instance=post)
+    else:
+        messages.error(request, 'Sorry. \
+                    You are not authorised to perform that operaiton.')
+
+    template = 'edit_post.html'
+    context = {
+        'form': form,
+        'post': post,
+    }
+
+    return render(request, template, context)
+
+
+@login_required
+def delete_post(request, slug):
+    """ Delete a post from the blog """
+
+    post = get_object_or_404(Post, slug=slug)
+    post.delete()
+    messages.success(request, 'Post deleted!')
+    return redirect(reverse('blog'))

@@ -1,22 +1,22 @@
 {% extends "base.html" %}
 {% block title %}Update Post {% endblock %}
+{% load crispy_forms_tags %}
 {% block content %}
 
 <!-- Only allowed to update if user is authenticated -->
 
 {% if user.is_authenticated %}
-{% if user.id == post.submitted_by.id %}
-<section class="py-5 min-vh-100">
-    <div class="container my-5">
+{% if user.id == post.author.id %}
+<section class="py-5">
+    <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <h1>Update Post:</h1>
                 <br>
-                <form method="POST" enctype="multipart/form-data" action="">
+                <form class="form text-muted" method="POST" enctype="multipart/form-data" action="{% url 'edit_post' post.slug %}">
                     {% csrf_token %}
-                    {{ form.as_p }}
-
-                    <button class="btn btn-primary" type="submit">Update</button>
+                    {{ form | crispy}}
+                    <button class="btn btn-success my-2" type="submit">Update</button>
                 </form>
             </div>
         </div>
@@ -31,12 +31,5 @@
 
 {% endif %}
 
-<h1>You're not allowed to view this page</h1>
-
 {% endif %}
-<!-- Javascript to autopopulate user.id if logged in -->
-<script>
-    var name = "{{ user.id }}";
-    document.getElementById("elder").value = name;
-</script>
 {% endblock %}

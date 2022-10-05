@@ -43,7 +43,7 @@
                                 <!-- Only users that are logged in can edit/ delete their own post -->
 
                                 {% if user.id == post.author.id %}
-                                <small><a href=""> Edit</a></small> |
+                                <small><a href="{% url 'edit_post' post.slug %}"> Edit</a></small> |
                                 <small><a href=""> Delete</a></small>
                                 {% endif %}
                             </p>
