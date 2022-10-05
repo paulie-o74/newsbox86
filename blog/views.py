@@ -5,6 +5,7 @@ from django.http import HttpResponseRedirect
 from django.contrib import messages
 from .models import Post
 from .forms import CommentForm, PostForm
+from django.utils.text import slugify
 
 
 class PostList(generic.ListView):
@@ -98,6 +99,7 @@ def add_post(request):
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
+            post.slug = slugify(post.title)
             form.save()
             messages.success(request, 'Successfully added post for review.')
             return redirect(reverse('home'))
