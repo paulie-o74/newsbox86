@@ -21,9 +21,7 @@
                             {% else %}
                             <img class="card-img-top" src="{{ post.featured_image.url }}" alt="featured_image">
                             {% endif %}
-                            <a href="{% url 'post_detail' post.slug  %}" class="post-link">
                                 <h2 class="card-title">{{ post.title }}</h2>
-                            </a>
                         </div>
                         <div class="image-flash">
                             <p class="author">Submitted by: {{ post.author }}
@@ -34,7 +32,7 @@
                                 {% if user.id == post.author.id %}
                                 <small class="text-muted"><a href="{% url 'edit_post' post.slug %}"> Edit</a></small>
                                 <small> | </small>
-                                <small class="text-muted"><a href="{% url 'delete_post' post.slug %}"> Delete</a></small>
+                                <small class="text-danger"><a href="{% url 'delete_post' post.slug %}"> Delete</a></small>
                                 {% endif %}
                             </p>
                         </div>
@@ -49,6 +47,10 @@
                                 {% else %}
                                 <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like"><i class="far fa-thumbs-up"></i></button>{{ post.number_of_likes }} | {{ post.category }} |
                                 {% endif %}
+                                {% else %}
+                                <p class="card-text d-inline">
+                                    <i class="far fa-thumbs-up"></i> {{ post.number_of_likes }} | {{ post.category }} |
+                                </p>
                             </form>
                             {% endif %}
                             {% with comments.count as total_comments %}

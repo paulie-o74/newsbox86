@@ -3,17 +3,6 @@
 {% block content %}
 {% load humanize %}
 
-
-<!-- Hero image -->
-
-<!-- <header class="py-5 bg-image-full" style="background-image: url(https://res.cloudinary.com/rashdogg74/image/upload/v1655475571/fpfydgz6bxakva9pf8mp.webp)">
-    <div style="height: 20rem"></div>
-    <div class="text-center my-5">
-        <h1 class="text-white fs-3 fw-bolder">Welcome to The NewsBox</h1>
-        <p class="text-white-50 mb-0">You decide what's newsworthy</p>
-    </div>
-</header> -->
-
 <!-- Blog news stories-->
 <section class="py-5">
     <div class="container my-5">
@@ -33,7 +22,7 @@
                             {% else %}
                             <img class="card-img-top" src="{{ post.thumbnail.url }}" alt="featured_image">
                             {% endif %}
-                            <a href="{% url 'post_detail' post.pk %}" class="post-link">
+                            <a href="{% url 'post_detail' post.pk %}" class="">
                                 <h2 class="card-title">{{ post.title }}</h2>
                             </a>
                         </div>

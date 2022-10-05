@@ -58,13 +58,14 @@ p {
 
 a {
     color: inherit;
-    text-decoration: underline;
-    opacity: 0.8;
+    text-decoration: none;
 }
 
 a:hover {
     opacity: 0.8;
+    color: #33b5e5;
 }
+
 
 img {
     vertical-align: middle;
@@ -118,31 +119,7 @@ img {
     width: auto;
 }
 
-/* p padding y top and bottom */
-.py-5 {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-}
-
-/* m margin y top and bottom */
-.my-5 {
-    margin-top: 3rem;
-    margin-bottom: 3rem;
-}
-
-.my-auto {
-    margin-top: auto;
-    margin-bottom: auto;
-}
-
-.pt-0 {
-    padding-top: 0;
-}
-
-.pt-5 {
-    padding-top: 3rem;
-}
-
+/* Hero image styling */
 .bg-image-full {
     background-repeat: no-repeat;
     background-attachment: scroll;
@@ -150,12 +127,7 @@ img {
     background-size: cover;
 }
 
-/* Text styling */
-.text-center {
-    text-align: center;
-}
-
-
+/* Alert styling */
 .alert-fixed {
     position:fixed; 
     top: 60px; 
@@ -165,9 +137,14 @@ img {
     border-radius:0px;
 }
 
+/* Text styling */
 .text-white {
     --bs-text-opacity: 1;
     color: white;
+}
+
+.text-center {
+    text-align: center;
 }
 
 .text-black {
@@ -175,14 +152,37 @@ img {
     color: black;
 }
 
-.post-link {
-    text-decoration: none;
-}
 
+/* Button styling */
 .btn-like {
     color: #4285F4;
     border: none;
     background: transparent;
+}
+
+/* -------------------------------- Footer styling */
+
+footer {
+    background-color: #ebebeb;
+    width: 100%;
+}
+
+
+
+/* -------------------------------- Social Styling */
+
+.social-btn {
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 50%;
+}
+
+.fa-facebook {
+    color: #3b5998
+}
+
+.fa-instagram {
+    color: #C13584;
 }
 
 
@@ -196,49 +196,6 @@ img {
     background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity));
 }
 
-/* Social media icons */
-
-
-
-.social-media-icons ul {
-    list-style: none;
-    padding-top: 30px;
-    text-align: center;
-}
-
-.social-media-icons a {
-    display: inline-block;
-    text-decoration: none;
-    padding-left: 2%;
-    padding-right: 2%;
-}
-
-.social-media-icons a i:hover {
-    opacity: 0.8;
-}
-
-/* Sign in styling */
-
-.form-signin {
-    max-width: 330px;
-    padding: 15px;
-}
-
-.form-signin .form-floating:focus-within {
-    z-index: 2;
-}
-
-.form-signin input[type="email"] {
-    margin-bottom: -1px;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
-}
-
-.form-signin input[type="password"] {
-    margin-bottom: 10px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-}
 
 /* media queries */
 

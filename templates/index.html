@@ -33,7 +33,7 @@
                             {% else %}
                             <img class="card-img-top" src="{{ post.featured_image.url }}" alt="featured_image">
                             {% endif %}
-                            <a href="{% url 'post_detail' post.slug  %}" class="post-link">
+                            <a href="{% url 'post_detail' post.slug  %}">
                                 <h2 class="card-title">{{ post.title }}</h2>
                             </a>
                         </div>
@@ -44,11 +44,11 @@
 
                                 {% if user.id == post.author.id %}
                                 <small><a href="{% url 'edit_post' post.slug %}"> Edit</a></small> |
-                                <small><a href="{% url 'delete_post' post.slug %}"> Delete</a></small>
+                                <small><a class="text-danger" href="{% url 'delete_post' post.slug %}"> Delete</a></small>
                                 {% endif %}
                             </p>
                         </div>
-                            <p class="card-text">{{post.content|slice:":200" }} <a href="{% url 'post_detail' post.slug  %}" class="post-link">... continue reading &rarr;</a></p>
+                            <p class="card-text">{{post.content|slice:":200" }} <a href="{% url 'post_detail' post.slug  %}" class="">... continue reading &rarr;</a></p>
                         <hr>
                         <p class="card-text text-muted ">
                             <i class="far fa-thumbs-up"></i> {{ post.number_of_likes }} |

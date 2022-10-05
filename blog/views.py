@@ -1,5 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.contrib.auth.decorators import login_required
+
+# from django.db.models import Q
+
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from django.contrib import messages
@@ -170,3 +173,47 @@ def delete_comment(request, pk):
     Comment.objects.get(pk=pk).delete()
     messages.success(request, 'Comment deleted!')
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+
+# class CategoryPostList(generic.ListView):
+#     """
+#     Category Post List Class Based View for displaying posts 
+#     from certain categories
+#     """
+#     model = Post
+#     queryset = Post.objects.filter(status=1).order_by('-created_on')
+#     template_name = 'category_post_list.html'
+#     paginate_by = 6
+
+# def search_posts(request):
+#     """ A view to show a search for posts """
+
+#     posts = Post.objects.filter(status=1).order_by('-created_on')
+#     query = None
+
+    # if request.GET:
+
+    #     if 'category' in request.GET:
+    #         categories = request.GET['category'].split(',')
+    #         products = products.filter(category__name__in=categories)
+    #         categories = Category.objects.filter(name__in=categories)
+
+    # if request.GET:
+    #     if 'q' in request.GET:
+    #         query = request.GET['q']
+    #         if not query:
+    #             messages.error(
+    #                 request, "You didn't enter any search criteria!")
+    #             return redirect(reverse('products'))
+
+    #         queries = Q(
+    #                     title__icontains=query) | Q(
+    #                                               content__icontains=query)
+    #         posts = posts.filter(queries)
+
+    # context = {
+    #     'posts': posts,
+    #     'search_term': query,
+    # }
+    # return render(request, 'category_post_list.html', context)
+
