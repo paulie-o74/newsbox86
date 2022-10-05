@@ -4,7 +4,8 @@
     outline: 1px solid #f00 !important;
 } */
 
-/* Full page styling  */
+/* --------------------------------Full page styling  */
+
 *::before,
 *::after {
     box-sizing: border-box;
@@ -71,7 +72,7 @@ img {
     vertical-align: middle;
 }
 
-/* Navbar styling */
+/* -------------------------------- Navbar styling */
 .navbar {
     position: relative;
     display: flex;
@@ -90,7 +91,7 @@ img {
     font-family: comforter;
 }
 
-/* Addition to bootstrap styling */
+/* -------------------------------- Addition to bootstrap styling */
 
 .container {
     width: 100%;
@@ -119,7 +120,7 @@ img {
     width: auto;
 }
 
-/* Hero image styling */
+/* -------------------------------- Hero image styling */
 .bg-image-full {
     background-repeat: no-repeat;
     background-attachment: scroll;
@@ -127,7 +128,7 @@ img {
     background-size: cover;
 }
 
-/* Alert styling */
+/* -------------------------------- Alert styling */
 .alert-fixed {
     position:fixed; 
     top: 60px; 
@@ -137,7 +138,7 @@ img {
     border-radius:0px;
 }
 
-/* Text styling */
+/* -------------------------------- Text styling */
 .text-white {
     --bs-text-opacity: 1;
     color: white;
@@ -153,7 +154,7 @@ img {
 }
 
 
-/* Button styling */
+/* -------------------------------- Button styling */
 .btn-like {
     color: #4285F4;
     border: none;
@@ -186,7 +187,7 @@ footer {
 }
 
 
-/* fw font weight */
+/* -------------------------------- fw font weight */
 .fw-bolder {
     font-weight: bolder;
 }
@@ -197,7 +198,7 @@ footer {
 }
 
 
-/* media queries */
+/* -------------------------------- media queries */
 
 @media (prefers-reduced-motion: no-preference) {
     :root {
