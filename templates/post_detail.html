@@ -92,9 +92,12 @@
                         {% for comment in comments %}
                         <div class="comments">
                             <p class="text-muted">
-                                {{ comment.created_on | naturaltime }} {{ comment.name }} wrote:
+                                {{ comment.created_on | naturaltime }} {{ comment.name }} wrote:                                 
                             </p>
                             {{ comment.body | linebreaks }}
+                            {% if user.id == post.author.id %}
+                            <small class="text-danger"><a href="{% url 'delete_comment' comment.id %}">Delete</a></small>
+                            {% endif %}
                         </div>
                         <hr>
                         {% endfor %}

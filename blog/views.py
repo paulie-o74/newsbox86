@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from django.contrib import messages
-from .models import Post
+from .models import Post, Comment
 from .forms import CommentForm, PostForm
 from django.utils.text import slugify
 
@@ -162,3 +162,11 @@ def delete_post(request, slug):
     else:
         messages.error(request, 'Sorry. \
             You are not authorised to perform that operaiton.')
+
+
+@login_required
+def delete_comment(request, pk):
+    """ Delete a comment in the blog """
+    Comment.objects.get(pk=pk).delete()
+    messages.success(request, 'Comment deleted!')
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
