@@ -155,6 +155,10 @@ def delete_post(request, slug):
     """ Delete a post from the blog """
 
     post = get_object_or_404(Post, slug=slug)
-    post.delete()
-    messages.success(request, 'Post deleted!')
-    return redirect(reverse('blog'))
+    if request.user.id == post.author.id:
+        post.delete()
+        messages.success(request, 'Post deleted!')
+        return redirect(reverse('home'))
+    else:
+        messages.error(request, 'Sorry. \
+            You are not authorised to perform that operaiton.')
