@@ -130,12 +130,12 @@ img {
 
 /* -------------------------------- Alert styling */
 .alert-fixed {
-    position:fixed; 
-    top: 60px; 
-    left: 0px; 
+    position: fixed;
+    top: 60px;
+    left: 0px;
     width: 100%;
-    z-index:9999; 
-    border-radius:0px;
+    z-index: 9999;
+    border-radius: 0px;
 }
 
 /* -------------------------------- Text styling */
@@ -201,6 +201,11 @@ footer {
     background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity));
 }
 
+.navbar .dropdown-menu {
+    background-color: #ebebeb;
+    border: 1px solid white;   
+}
+
 
 /* -------------------------------- media queries */
 
@@ -221,8 +226,7 @@ footer {
     h4,
     .h4,
     h5,
-    .h5
-        {
+    .h5 {
         font-size: 1.5rem;
     }
 }
