@@ -10,4 +10,5 @@ urlpatterns = [
     path('delete/<slug:slug>/', views.delete_post, name='delete_post'),
     path('<int:pk>/delete_comment',
          views.delete_comment, name='delete_comment'),
+    path('category/<category>/', views.CatListView.as_view(), name='category'),
 ]

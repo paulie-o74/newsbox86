@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from django.contrib import messages
-from .models import Post, Comment
+from .models import Post, Comment, Category
 from .forms import CommentForm, PostForm
 from django.utils.text import slugify
 
@@ -175,45 +175,24 @@ def delete_comment(request, pk):
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 
-# class CategoryPostList(generic.ListView):
-#     """
-#     Category Post List Class Based View for displaying posts 
-#     from certain categories
-#     """
-#     model = Post
-#     queryset = Post.objects.filter(status=1).order_by('-created_on')
-#     template_name = 'category_post_list.html'
-#     paginate_by = 6
+class CatListView(generic.ListView):
+    """
+    Category List Class Based View for displaying categories 
+    """
+    template_name = 'category.html'
+    context_object_name = 'catlist'
 
-# def search_posts(request):
-#     """ A view to show a search for posts """
+    def get_queryset(self):
+        content = {
+            'cat': self.kwargs['category'],
+            'posts': Post.objects.filter(category__cat_title=self.kwargs['category']).filter(status=1)
+        }
+        return content
 
-#     posts = Post.objects.filter(status=1).order_by('-created_on')
-#     query = None
 
-    # if request.GET:
-
-    #     if 'category' in request.GET:
-    #         categories = request.GET['category'].split(',')
-    #         products = products.filter(category__name__in=categories)
-    #         categories = Category.objects.filter(name__in=categories)
-
-    # if request.GET:
-    #     if 'q' in request.GET:
-    #         query = request.GET['q']
-    #         if not query:
-    #             messages.error(
-    #                 request, "You didn't enter any search criteria!")
-    #             return redirect(reverse('products'))
-
-    #         queries = Q(
-    #                     title__icontains=query) | Q(
-    #                                               content__icontains=query)
-    #         posts = posts.filter(queries)
-
-    # context = {
-    #     'posts': posts,
-    #     'search_term': query,
-    # }
-    # return render(request, 'category_post_list.html', context)
-
+# def category_list(request):
+#     category_list = Category.objects.exclude(name='default')
+#     context = {
+#         "category_list": category_list,
+#     }
+#     return context
