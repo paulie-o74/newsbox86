@@ -209,7 +209,7 @@ def post_search(request):
             q = form.cleaned_data['q']
             results = Post.objects.filter(Q
                                           (title__icontains=q)
-                                          | Q(content__icontains=q))
+                                          | Q(content__icontains=q)).filter(status=1)
 
     return render(request, 'search.html', {
         'form': form,

@@ -52,12 +52,12 @@
                                         class="far fa-thumbs-up"></i></button>{{ post.number_of_likes }} | <a
                                     href="/category/{{ post.category }}">{{ post.category|title }}</a> |
                                 {% endif %}
-                                {% else %}
-                                <p class="card-text d-inline">
-                                    <i class="far fa-thumbs-up"></i> {{ post.number_of_likes }} | <a
-                                        href="/category/{{ post.category }}">{{ post.category|title }}</a> |
-                                </p>
                             </form>
+                            {% else %}
+                            <p class="card-text d-inline">
+                                <i class="far fa-thumbs-up"></i> {{ post.number_of_likes }} | <a
+                                    href="/category/{{ post.category }}">{{ post.category|title }}</a> |
+                            </p>
                             {% endif %}
                             {% with comments.count as total_comments %}
                             <i class="far fa-comments"></i>
