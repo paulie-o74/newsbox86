@@ -1,27 +1,26 @@
 {% extends "base.html" %}
-{% block title %}Category{% endblock %}
-{% block content %}
 {% load humanize %}
 {% load static %}
+{% block title %}Search results{% endblock %}
+{% block content %}
+
 
 <section class="py-5 min-vh-80">
     <div class="container">
         <div class="row justify-content-center">
 
-            <!-- Show all posts -->
-            <h1 class="text-center pb-5"><strong>Post Category: {{ catlist.cat|title }}</strong></h1>
-            {% for post in catlist.posts %}
+            {% if q %}
+            <h1 class="text-center pb-5"><strong>
+                {% with results.count as total_results %}
+                Showing {{ total_results }} result{{ total_results|pluralize }} containing: "{{ q }}"
+                {% endwith %}
+            </strong></h1>
+
+            {% for post in results %}
             <div class="col-lg-8">
                 <div class="card mb-4">
                     <div class="card-body">
                         <div class="image-container">
-                            {% if "placeholder" in post.featured_image.url %}
-                            <img class="card-img-top"
-                                src="https://images.unsplash.com/photo-1495020689067-958852a7765e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2069&q=80"
-                                alt="placeholder_image">
-                            {% else %}
-                            <img class="card-img-top" src="{{ post.featured_image.url }}" alt="featured_image">
-                            {% endif %}
                             <a href="{% url 'post_detail' post.slug  %}">
                                 <h2 class="card-title">{{ post.title }}</h2>
                             </a>
@@ -52,32 +51,13 @@
             <div class="col-lg-8">
                             <img class="card-img-top" src="{% static 'images/sad.webp' %}"
                                 alt="sad image because no results">
-                            <h2 class="text-center">Sorry, currently there are no posts in this category. <a
+                            <h2 class="text-center">Sorry, currently there are no posts containing your search query. <a
                                     href="{% url 'add_post' %}">Add one?</a></h2>
             </div>
             {% endfor %}
+            {% endif %}
         </div>
     </div>
-
-    <!-- Pagination -->
-
-    {% if is_paginated %}
-    <nav aria-label="Page navigation">
-        <ul class="pagination justify-content-center">
-
-            {% if page_obj.has_previous %}
-
-            <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
-
-            {% endif %}
-            {% if page_obj.has_next %}
-
-            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
-
-            {% endif %}
-        </ul>
-    </nav>
-    {% endif %}
 </section>
 
 {% endblock %}

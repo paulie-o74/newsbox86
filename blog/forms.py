@@ -20,3 +20,6 @@ class PostForm(forms.ModelForm):
         model = Post
         exclude = ('author', 'slug', 'likes', 'updated_on', 'excerpt', 'status',)
 
+
+class PostSearchForm(forms.Form):
+    q = forms.CharField()

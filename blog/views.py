@@ -1,14 +1,12 @@
 from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.contrib.auth.decorators import login_required
-
-# from django.db.models import Q
-
+from django.db.models import Q
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from django.contrib import messages
-from .models import Post, Comment, Category
-from .forms import CommentForm, PostForm
 from django.utils.text import slugify
+from .models import Post, Comment, Category
+from .forms import CommentForm, PostForm, PostSearchForm
 
 
 class PostList(generic.ListView):
@@ -78,6 +76,7 @@ class PostDetail(View):
                 "liked": liked
             },
         )
+
 
 
 class PostLike(View):
@@ -177,7 +176,7 @@ def delete_comment(request, pk):
 
 class CatListView(generic.ListView):
     """
-    Category List Class Based View for displaying categories 
+    Category List Class Based View for displaying categories
     """
     template_name = 'category.html'
     context_object_name = 'catlist'
@@ -191,8 +190,28 @@ class CatListView(generic.ListView):
 
 
 def category_list(request):
+    """ Return a list of categories for the dropdown in the nav """
     category_list = Category.objects.all()
     context = {
         "category_list": category_list,
     }
     return context
+
+
+def post_search(request):
+    """ Return a list of posts from a search term in the nav """
+    form = PostSearchForm()
+    q = ''
+    results = []
+
+    if 'q' in request.GET:
+        form = PostSearchForm(request.GET)
+        if form.is_valid():
+            q = form.cleaned_data['q']
+            results = Post.objects.filter(Q(title__icontains=q) | Q(content__icontains=q))
+
+    return render(request, 'search.html', {
+        'form': form,
+        'q': q,
+        'results': results
+    })
