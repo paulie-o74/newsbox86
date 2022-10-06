@@ -43,13 +43,13 @@
                             <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST">
                                 {% csrf_token %}
                                 {% if liked %}
-                                <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like"><i class="fas fa-thumbs-up"></i></button>{{ post.number_of_likes }} | {{ post.category }} |
+                                <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like"><i class="fas fa-thumbs-up"></i></button>{{ post.number_of_likes }} | <a href="/category/{{ post.category }}">{{ post.category|title }}</a> |
                                 {% else %}
-                                <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like"><i class="far fa-thumbs-up"></i></button>{{ post.number_of_likes }} | {{ post.category }} |
+                                <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like"><i class="far fa-thumbs-up"></i></button>{{ post.number_of_likes }} | <a href="/category/{{ post.category }}">{{ post.category|title }}</a> |
                                 {% endif %}
                                 {% else %}
                                 <p class="card-text d-inline">
-                                    <i class="far fa-thumbs-up"></i> {{ post.number_of_likes }} | {{ post.category }} |
+                                    <i class="far fa-thumbs-up"></i> {{ post.number_of_likes }} | <a href="/category/{{ post.category }}">{{ post.category|title }}</a> |
                                 </p>
                             </form>
                             {% endif %}

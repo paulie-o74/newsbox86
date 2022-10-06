@@ -52,7 +52,7 @@
                         <hr>
                         <p class="card-text text-muted ">
                             <i class="far fa-thumbs-up"></i> {{ post.number_of_likes }} |
-                            {{ post.updated_on | naturaltime }} | {{ post.category }}
+                            {{ post.updated_on | naturaltime }} | <a href="/category/{{ post.category }}">{{ post.category|title }}</a>
                         </p>
                     </div>
                 </div>

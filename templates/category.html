@@ -2,13 +2,14 @@
 {% block title %}The Newsbox{% endblock %}
 {% block content %}
 {% load humanize %}
+{% load static %}
 
 <section class="py-5">
     <div class="container">
         <div class="row justify-content-center">
 
             <!-- Show all posts -->
-
+            <h1 class="text-center pb-5"><strong>Post Category: {{ catlist.cat|title }}</strong></h1>
             {% for post in catlist.posts %}
             <div class="col-lg-8">
                 <div class="card mb-4">
@@ -27,23 +28,32 @@
                         </div>
                         <div class="image-flash">
                             <p class="author">Submitted by: {{ post.author }}
-                                
+
                                 <!-- Only users that are logged in can edit/ delete their own post -->
 
                                 {% if user.id == post.author.id %}
                                 <small><a href="{% url 'edit_post' post.slug %}"> Edit</a></small> |
-                                <small><a class="text-danger" href="{% url 'delete_post' post.slug %}"> Delete</a></small>
+                                <small><a class="text-danger" href="{% url 'delete_post' post.slug %}">
+                                        Delete</a></small>
                                 {% endif %}
                             </p>
                         </div>
-                            <p class="card-text">{{post.content|slice:":200" }} <a href="{% url 'post_detail' post.slug  %}" class="">... continue reading &rarr;</a></p>
+                        <p class="card-text">{{post.content|slice:":200" }} <a href="{% url 'post_detail' post.slug  %}"
+                                class="">... continue reading &rarr;</a></p>
                         <hr>
                         <p class="card-text text-muted ">
                             <i class="far fa-thumbs-up"></i> {{ post.number_of_likes }} |
-                            {{ post.updated_on | naturaltime }} | {{ post.category }}
+                            {{ post.updated_on | naturaltime }} | <a href="/category/{{ post.category }}">{{ post.category|title }}</a>
                         </p>
                     </div>
                 </div>
+            </div>
+            {% empty %}
+            <div class="col-lg-8">
+                            <img class="card-img-top" src="{% static 'images/sad.webp' %}"
+                                alt="sad image because no results">
+                            <h2 class="text-center">Sorry, currently there are no posts in this category. <a
+                                    href="{% url 'add_post' %}">Add one?</a></h2>
             </div>
             {% endfor %}
         </div>
