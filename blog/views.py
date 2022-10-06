@@ -78,7 +78,6 @@ class PostDetail(View):
         )
 
 
-
 class PostLike(View):
     """
     Post Like Class Based View for managing the like an unlike actions
@@ -208,7 +207,9 @@ def post_search(request):
         form = PostSearchForm(request.GET)
         if form.is_valid():
             q = form.cleaned_data['q']
-            results = Post.objects.filter(Q(title__icontains=q) | Q(content__icontains=q))
+            results = Post.objects.filter(Q
+                                          (title__icontains=q)
+                                          | Q(content__icontains=q))
 
     return render(request, 'search.html', {
         'form': form,

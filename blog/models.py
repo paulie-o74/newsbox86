@@ -42,14 +42,16 @@ class Post(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE,
                                  related_name="categories")
 
-
     class Meta:
+        """ Ordering class """
         ordering = ["-created_on"]
 
     def __str__(self):
+        """ Return title """
         return self.title
 
     def number_of_likes(self):
+        """ Return amount of likes """
         return self.likes.count()
 
 

@@ -6,7 +6,8 @@
 
 <!-- Hero image -->
 
-<header class="py-5 bg-image-full" style="background-image: url(https://res.cloudinary.com/rashdogg74/image/upload/v1655475571/fpfydgz6bxakva9pf8mp.webp)">
+<header class="py-5 bg-image-full"
+    style="background-image: url(https://res.cloudinary.com/rashdogg74/image/upload/v1655475571/fpfydgz6bxakva9pf8mp.webp)">
     <div style="height: 20rem"></div>
     <div class="text-center my-5">
         <h1 class="text-white fs-3 fw-bolder">Welcome to The NewsBox</h1>
@@ -39,20 +40,23 @@
                         </div>
                         <div class="image-flash">
                             <p class="author">Submitted by: {{ post.author }}
-                                
+
                                 <!-- Only users that are logged in can edit/ delete their own post -->
 
                                 {% if user.id == post.author.id %}
                                 <small><a href="{% url 'edit_post' post.slug %}"> Edit</a></small> |
-                                <small><a class="text-danger" href="{% url 'delete_post' post.slug %}"> Delete</a></small>
+                                <small><a class="text-danger" href="{% url 'delete_post' post.slug %}">
+                                        Delete</a></small>
                                 {% endif %}
                             </p>
                         </div>
-                            <p class="card-text">{{post.content|slice:":200" }} <a href="{% url 'post_detail' post.slug  %}" class="">... continue reading &rarr;</a></p>
+                        <p class="card-text">{{post.content|slice:":200" }} <a href="{% url 'post_detail' post.slug  %}"
+                                class="">... continue reading &rarr;</a></p>
                         <hr>
                         <p class="card-text text-muted ">
                             <i class="far fa-thumbs-up"></i> {{ post.number_of_likes }} |
-                            {{ post.updated_on | naturaltime }} | <a href="/category/{{ post.category }}">{{ post.category|title }}</a>
+                            {{ post.updated_on | naturaltime }} | <a
+                                href="/category/{{ post.category }}">{{ post.category|title }}</a>
                         </p>
                     </div>
                 </div>

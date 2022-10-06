@@ -10,11 +10,13 @@
         <div class="row justify-content-center">
 
             {% if q %}
-            <h1 class="text-center pb-5"><strong>
-                {% with results.count as total_results %}
-                Showing {{ total_results }} result{{ total_results|pluralize }} containing: "{{ q }}"
-                {% endwith %}
-            </strong></h1>
+            <h1 class="text-center pb-5">
+                <strong>
+                    {% with results.count as total_results %}
+                    Showing {{ total_results }} result{{ total_results|pluralize }} containing: "{{ q }}"
+                    {% endwith %}
+                </strong>
+            </h1>
 
             {% for post in results %}
             <div class="col-lg-8">
@@ -42,17 +44,17 @@
                         <hr>
                         <p class="card-text text-muted ">
                             <i class="far fa-thumbs-up"></i> {{ post.number_of_likes }} |
-                            {{ post.updated_on | naturaltime }} | <a href="/category/{{ post.category }}">{{ post.category|title }}</a>
+                            {{ post.updated_on | naturaltime }} | <a
+                                href="/category/{{ post.category }}">{{ post.category|title }}</a>
                         </p>
                     </div>
                 </div>
             </div>
             {% empty %}
             <div class="col-lg-8">
-                            <img class="card-img-top" src="{% static 'images/sad.webp' %}"
-                                alt="sad image because no results">
-                            <h2 class="text-center">Sorry, currently there are no posts containing your search query. <a
-                                    href="{% url 'add_post' %}">Add one?</a></h2>
+                <img class="card-img-top" src="{% static 'images/sad.webp' %}" alt="sad image because no results">
+                <h2 class="text-center">Sorry, currently there are no posts containing your search query. <a
+                        href="{% url 'add_post' %}">Add one?</a></h2>
             </div>
             {% endfor %}
             {% endif %}

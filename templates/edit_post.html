@@ -13,7 +13,8 @@
             <div class="col-lg-8">
                 <h1>Update Post:</h1>
                 <br>
-                <form class="form text-muted" method="POST" enctype="multipart/form-data" action="{% url 'edit_post' post.slug %}">
+                <form class="form text-muted" method="POST" enctype="multipart/form-data"
+                    action="{% url 'edit_post' post.slug %}">
                     {% csrf_token %}
                     {{ form | crispy}}
                     <button class="btn btn-success my-2" type="submit">Update</button>

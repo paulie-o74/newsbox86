@@ -6,7 +6,7 @@
 
 <!-- Post detail-->
 
-<section class="py-1">
+<section class="py-1 min-vh-80">
     <div class="container my-5">
         <div class="row justify-content-center">
 
@@ -21,7 +21,7 @@
                             {% else %}
                             <img class="card-img-top" src="{{ post.featured_image.url }}" alt="featured_image">
                             {% endif %}
-                                <h2 class="card-title">{{ post.title }}</h2>
+                            <h2 class="card-title">{{ post.title }}</h2>
                         </div>
                         <div class="image-flash">
                             <p class="author">Submitted by: {{ post.author }}
@@ -32,7 +32,8 @@
                                 {% if user.id == post.author.id %}
                                 <small class="text-muted"><a href="{% url 'edit_post' post.slug %}"> Edit</a></small>
                                 <small> | </small>
-                                <small class="text-danger"><a href="{% url 'delete_post' post.slug %}"> Delete</a></small>
+                                <small class="text-danger"><a href="{% url 'delete_post' post.slug %}">
+                                        Delete</a></small>
                                 {% endif %}
                             </p>
                         </div>
@@ -43,13 +44,18 @@
                             <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST">
                                 {% csrf_token %}
                                 {% if liked %}
-                                <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like"><i class="fas fa-thumbs-up"></i></button>{{ post.number_of_likes }} | <a href="/category/{{ post.category }}">{{ post.category|title }}</a> |
+                                <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like"><i
+                                        class="fas fa-thumbs-up"></i></button>{{ post.number_of_likes }} | <a
+                                    href="/category/{{ post.category }}">{{ post.category|title }}</a> |
                                 {% else %}
-                                <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like"><i class="far fa-thumbs-up"></i></button>{{ post.number_of_likes }} | <a href="/category/{{ post.category }}">{{ post.category|title }}</a> |
+                                <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like"><i
+                                        class="far fa-thumbs-up"></i></button>{{ post.number_of_likes }} | <a
+                                    href="/category/{{ post.category }}">{{ post.category|title }}</a> |
                                 {% endif %}
                                 {% else %}
                                 <p class="card-text d-inline">
-                                    <i class="far fa-thumbs-up"></i> {{ post.number_of_likes }} | <a href="/category/{{ post.category }}">{{ post.category|title }}</a> |
+                                    <i class="far fa-thumbs-up"></i> {{ post.number_of_likes }} | <a
+                                        href="/category/{{ post.category }}">{{ post.category|title }}</a> |
                                 </p>
                             </form>
                             {% endif %}
@@ -94,11 +100,12 @@
                         {% for comment in comments %}
                         <div class="comments">
                             <p class="text-muted">
-                                {{ comment.created_on | naturaltime }} {{ comment.name }} wrote:                                 
+                                {{ comment.created_on | naturaltime }} {{ comment.name }} wrote:
                             </p>
                             {{ comment.body | linebreaks }}
                             {% if user.id == post.author.id %}
-                            <small class="text-danger"><a href="{% url 'delete_comment' comment.id %}">Delete</a></small>
+                            <small class="text-danger"><a
+                                    href="{% url 'delete_comment' comment.id %}">Delete</a></small>
                             {% endif %}
                         </div>
                         <hr>
