@@ -51,7 +51,7 @@
                             </p>
                         </div>
                         <p class="card-text">{{post.content|slice:":200" }} <a href="{% url 'post_detail' post.slug  %}"
-                                class="">... continue reading &rarr;</a></p>
+                                class="hidden-link">... continue reading &rarr;</a></p>
                         <hr>
                         <p class="card-text text-muted ">
                             <i class="far fa-thumbs-up"></i> {{ post.number_of_likes }} |

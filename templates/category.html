@@ -52,8 +52,8 @@
             {% empty %}
             <div class="col-lg-8">
                 <img class="card-img-top" src="https://res.cloudinary.com/rashdogg74/image/upload/v1665087640/static/images/sad_jqodcl.webp" alt="sad image because no results">
-                <h2 class="text-center">Sorry, currently there are no posts in this category. <a
-                        href="{% url 'add_post' %}">Add one?</a></h2>
+                <h2 class="text-center">Sorry, currently there are no posts in this category. 
+                    <a class="hidden-link" href="{% url 'add_post' %}">Add one?</a></h2>
             </div>
             {% endfor %}
         </div>

@@ -65,11 +65,17 @@ a {
 a:hover {
     opacity: 0.8;
     color: #33b5e5;
+    text-decoration: underline;
 }
-
 
 img {
     vertical-align: middle;
+}
+
+/* -------------------------------- Random extras */
+.hidden-link {
+    color: #33b5e5;
+    text-decoration: underline;
 }
 
 /* -------------------------------- Navbar styling */
