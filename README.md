@@ -453,6 +453,7 @@ You will need to install all of the packages listed in the requirements file you
 - (https://unsplash.com/photos/3Sf_G9mOgcQ)
 - (https://unsplash.com/photos/NIAWQT3mB98)
 - (https://unsplash.com/photos/_Zua2hyvTBk)
+- (https://miro.medium.com/max/1400/1'izG4_OEG500Y42h953GuQA.jpeg)
 
 ### Acknowledgments
 * Code Institutes Tutor support for their help and guidance.
