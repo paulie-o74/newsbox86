@@ -16,26 +16,21 @@ Paul Thomas O'Riordan
 This is a full-stack project built using Django, Python, HTML, CSS, and JavaScript. I have created this website for my fourth project of the codeinstitute's Diploma in FullStack Development. It is a web application that will allow users to share what they see as newsworthy and allow for user interaction and commenting similar to that of reddit. 
 
 ## Table of Contents
-1. [Project Goals](#project-goals)
-    1. [User Goals](#user-goals)
-    2. [Site Owner Goals](#site-owner-goals)
-2. [User Experience](#user-experience)
-    1. [Target Audience](#target-audience)
-    2. [User Stories](#user-stories)
-    3. [Scope](#scope)
-    4. [Design](#design)
+1. [Project Aim](#aim)
+2. [User Experience]()
+    1. [Target Audience](#database)
+    2. [Apps]()
+    3. [Design](#design)
+    4. [Scope](#scope)
     5. [Wireframes](#wireframes)
-3. [Technical Design](#technical-design)
-    1. [Flowchart](#flowchart)
-    2. [Data Models](#data-models)   
-4. [Technologies Used](#technologies-used)
-    1. [Languages](#languages)
-    2. [Frameworks and Tools](#frameworks-and-tools)
-5. [Features](#features)
-6. [Testing](#validation)
-    1. [Python Validation](#Python-validation)
-    2. [Testing user stories](#testing-user-stories)
-8. [Bugs](#Bugs)
+    6. [User stories](#user-stories)
+3. [Technical]()
+    1. [Agile](#agile)
+4. [Features](#features)
+5. [Marketing] (#marketing)
+6. [Bugs](#Bugs)
+7. [Technologies Used](#tech)
+8. [Testing](#validation)
 9. [Deployment](#deployment)
 10. [Credits](#credits)
 11. [Acknowledgments](#acknowledgments)
@@ -75,7 +70,7 @@ This app controls the main functionality associated with the web application. I 
 
 ## Skeleton <a name="wireframes"></a>
 
-### UI/UX
+### UI/UX <a name="design"></a>
 
 Design inspiration came from various google searches for blogs and templates, the "I think therefor I blog" walkthrough project on Code Institute as well as reddit- the main inspiration.
 
