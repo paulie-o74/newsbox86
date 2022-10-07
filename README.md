@@ -269,12 +269,14 @@ The chosen fonts were Gloria Hallelujah for the logo and titles and Raleway for 
 
 | **Bug** | **Fix** |
 | ----------- | ----------- |
-| The logo would not stay in the footer when changing screen sizes.| Add the dorm-inline class to the div and justify content center as well as removing redundant classes |
-| When scrolling up to show the nav bar again, the content underneath could be seen. | Remove the html height - 100% in css |
-| If a search term which isn't recognised is used then messages would not be shown and all products would be shown. | I used for else statements to show an image and message if no results are found using the specific search term |
-| When trying to pay, the order was going through but not going to the success page as it was stuck on the processing page. | There was an old webhook enabled from a preovious project and when this was deactivated and a new correct domain added then it worked correctly. |
-| stripelements.js was not aligned to the billing details as there was only one field for name wheras in the profile model there as first name and second name  | Use of template strings to .trim the first name and second name. |
-| A user could update the quanitity of original pieces (1 of a kind pieces) | In the quantity input script added a new function called handle enable diable cat. Where the category of the product was assigned to a variable and if theat category included the word original then the + - butoons were disabled. Then a if else statement for all quantity inputs on the page was used. Also in views.py an if else statement was used not to increment the quantity of the product in the bag if the user clicked the add to bag button multiple times. The user would then receive a message explaining what was happening. |
+| The logo would not stay in the footer when changing screen sizes.| Removing redundant classes |
+| When scrolling down I could see the footer halfway up the screen behind content. | Remove the html height - 80% in css |
+| A search term was only searching the title. | I used Q __icontains and the pipe to signify or and added name and content. |
+| When trying to like a post, the comment form was saying please fill in this field. | The if else statement had to have the final part moved outside the postLike form. |
+| Message container was moving the hero image down when it appeared and not sitting on top of content  | Add css and specifically z index and position to achieve this. |
+| The categories drop down was not populating | Add correct template literals within the for loop. As well as adding the data-bs-toggle. |
+| Static files were not loading in deployed project | Collect static after deployment. |
+| Database not connected after deplyment | Heroku had done maintenance on their databases and the database_url variable had changed and needed to be updated in env.py. |
 
 
 ## Technologies Used <a name="tech"></a>
@@ -347,7 +349,7 @@ This project was deployed through Heroku using the following steps:
 ### Requirements and Procfile
 Heroku needs to know which technologies are being used and any requirements, so I created files to let it know. Before creating the Heroku app, create these files using the following steps in GitPod: 
 * In the GitPod terminal, type ```pip3 freeze --local > requirements.txt``` to create your requirements file.
-* Create your Procfile and insert the following code: ```web: ``` and make sure there is no additional blank line after it. 
+* Create your Procfile and insert the following code: ```web: gunicorn newsbox86.wsgi ``` and make sure there is no additional blank line after it. 
 * Push these files to your repository.
 
 ### Creating Heroku App
