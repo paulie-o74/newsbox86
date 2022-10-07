@@ -84,19 +84,10 @@ Each subsequent page after the home page has the same structure to ensure unifor
 
 Click to see wireframes:
 
-[1](/)<br>
-[2](/media/)<br>
-[3](/media/)<br>
-[4](/media/)<br>
-[5](/media/)<br>
-[6](/media/)<br>
-[7](/media/)<br>
-[8](/media/)<br>
-[9](/media/)<br>
-[10](/media/)<br>
-[11](/media/)<br>
-[12](/media/)<br>
-[13](/media/)<br>
+[1](/static/images/wire2.png)<br>
+[2](/static/images/wire3.png)<br>
+[3](/static/images/wire1.png)<br>
+
 
 ## User Experience
 
@@ -172,7 +163,7 @@ Click to see wireframes:
     + Add messages
     - Set up messages with high z index
 
-* Sprint 5 revising the failed project and making neccesary fixes 26/09/22 - 09/10/22 (Finished on 09/10/22)
+* Sprint 5 revising the project and making neccesary fixes 26/09/22 - 09/10/22 (Finished on 09/10/22)
     + Debug and fixes
     - Remove heroku app and reset databases to run locally
     - Remove posts and content
@@ -242,6 +233,10 @@ Click to see wireframes:
 |the site purpose       |                |                |
 |:--------------------  |--------------- |--------------- |
 |Logout functionality   |       1        |       5        |
+|:--------------------  |--------------- |--------------- |
+|Search functionality   |       3        |       3        |
+|:--------------------  |--------------- |--------------- |
+|Like functionality     |       3        |       3        |
 
 ### Future Features
 As this is an educational project, it will not be maintained in the future. However, if it were a live site, some features that I would like to implement are listed below.
@@ -249,7 +244,7 @@ As this is an educational project, it will not be maintained in the future. Howe
 * Better form validation.
 * User permissions / groups to allow staff to have non-breaking access to the CMS.
 * Further improve user experience.
-* Add a FAQs and contact section.
+* Add a FAQs, subscribers list, and contact section.
 
 ## Marketing <a name="marketing"></a>
 
@@ -261,8 +256,7 @@ As this is an educational project, it will not be maintained in the future. Howe
 * Colours
 
 The Colour scheme was generated using the eyedropper plugin to get one colour from the logo image and [colours](https://coolors.co/) to create the colour palette.
-
-[View Pallet Here]()
+A simple pallette using grey black and white and complimented by bootstrap colors and classes was eventually decided on. 
 
 * Font Selection
  
@@ -294,7 +288,6 @@ The chosen fonts were Gloria Hallelujah for the logo and titles and Raleway for 
 * [Python](https://www.python.org/)
     * This projects core was created using Python, the back-end logic and the means to run/view the Website.
     * Python Modules used (These can be found in the requirements.txt project file):
-
 * [Django](https://en.wikipedia.org/wiki/Django_(web_framework))
     * This project was created using the Django framework, the back-end logic and the means to run/view the Website.
 * [Bootstrap](https://getbootstrap.com/)
@@ -375,10 +368,6 @@ Heroku needs to know which technologies are being used and any requirements, so 
 * Locate the 'Config Vars' and click 'Reveal Config Vars'
 * Enter all variables needed.
 
-<!-- ### Heroku Postgres Database
-* AWS S3 Buckets
-* Paste variable in to Heroku config vars. -->
-
 ### Heroku Postgres Database
 * Go to the resources tab in Heroku.
 * In the Add-ons search bar look for Heroku Postgres & select it.
@@ -391,7 +380,7 @@ Heroku needs to know which technologies are being used and any requirements, so 
 
 ### Set up Emails
 
-## I used Gmail for the email on the contact page. Others can be used but will need a few changes**
+## I used Gmail for the email provider for allauth. Others can be used but will need a few changes**
 
 * Go to settings.py and change the EMAIL_HOST_USER to your chosen email address.
 * If you want to set up a new Gmail account for the site, this is the time to do so.
