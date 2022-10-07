@@ -426,7 +426,7 @@ You will need to install all of the packages listed in the requirements file you
 
 ### Media
 * Images - Most of the images used were taken from (https://unsplash.com)
-+ Here are teh individual references
++ Here are the individual references
 - (https://unsplash.com/photos/XJXWbfSo2f0)
 - (https://unsplash.com/photos/-YHSwy6uqvk)
 - (https://unsplash.com/photos/A5rCN8626Ck)
