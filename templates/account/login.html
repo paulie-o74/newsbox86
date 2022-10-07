@@ -12,14 +12,14 @@
     <div class="row justify-content-center">
       <div class="col-lg-8">
 
-        <h1>{% trans "Sign In" %}</h1>
+        <h1><strong>{% trans "Sign In" %}</strong></h1>
 
 
         <p>{% blocktrans %}If you have not created an account yet, then please
-          <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}
+          <a class="hidden-link" href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}
           <br>
 
-          <a href="{% url 'account_reset_password' %}">{% trans "Forgotten your Password?" %}</a>
+          <a class="hidden-link" href="{% url 'account_reset_password' %}">{% trans "Forgotten your Password?" %}</a>
         </p>
 
         <form class="login form-control" method="POST" action="{% url 'account_login' %}">

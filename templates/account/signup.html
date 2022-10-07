@@ -9,9 +9,9 @@
 	<div class="container">
 		<div class="row justify-content-center">
 			<div class="col-lg-8">
-				<h1>{% trans "Sign Up" %}</h1>
+				<h1><strong>{% trans "Sign Up" %}</strong></h1>
 
-				<p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign
+				<p>{% blocktrans %}Already have an account? Then please <a class="hidden-link" href="{{ login_url }}">sign
 						in</a>.{% endblocktrans %}</p>
 
 				<form class="signup form-control" id="signup_form" method="post" action="{% url 'account_signup' %}">
