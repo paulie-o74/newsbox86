@@ -21,6 +21,10 @@ class PostAdmin(admin.ModelAdmin):
     search_fields = ['title', 'content']
     list_filter = ('status', 'created_on')
     prepopulated_fields = {'slug': ('title',)}
+    actions = ['publish_posts']
+
+    def publish_posts(self, request, queryset):
+        queryset.update(status=1)
 
 
 @admin.register(Comment)
