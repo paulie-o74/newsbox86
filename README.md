@@ -185,7 +185,7 @@ Click to see wireframes:
 * Ability to sort by category
 * Ability to like posts
 * Ability to comment on blog posts and & delete comments.
-* Admin creation and management of products.
+* Admin creation and management of posts.
 
 **Importance and Difficulty**
 
