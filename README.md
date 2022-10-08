@@ -27,7 +27,7 @@ This is a full-stack project built using Django, Python, HTML, CSS, and JavaScri
 3. [Technical]()
     1. [Agile](#agile)
 4. [Features](#features)
-5. [Marketing] (#marketing)
+5. [Marketing](#marketing)
 6. [Bugs](#Bugs)
 7. [Technologies Used](#tech)
 8. [Testing](#validation)
@@ -161,7 +161,6 @@ Click to see wireframes:
 * Sprint 5 revising the project and making neccesary fixes 26/09/22 - 09/10/22 (Finished on 09/10/22)
     + Debug and fixes
     - Remove heroku app and reset databases to run locally
-    - Remove posts and content
     - Add new model and databases
     - Fix views to add login required, search and category sorting functionality
     - Add email functionality for allauth
